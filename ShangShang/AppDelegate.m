@@ -13,6 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //消息推送支持的类型
+    UIRemoteNotificationType types =
+    (UIRemoteNotificationTypeBadge
+     |UIRemoteNotificationTypeSound
+     |UIRemoteNotificationTypeAlert);
+    //注册消息推送
+    [[UIApplication sharedApplication]registerForRemoteNotificationTypes:types];
     return YES;
 }
 							
@@ -41,6 +48,53 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+//注册push服务
+- (void)application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:
+                       　　　　[NSCharacterSet characterSetWithCharactersInString:@"<>"]]; //去掉"<>"
+    token = [[token description] stringByReplacingOccurrencesOfString:@" " withString:@""];//去掉中间空格
+    NSLog(@"deviceToken: %@", token);
+    deviceToken=token;
+    //debug
+    /*
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"devicetoken"
+                                                    message:token
+                                                   delegate:self
+                                          cancelButtonTitle:@"关闭"
+                                          otherButtonTitles:@"更新状态",nil];
+    [alert show];
+    [alert release];
+    */
+}
+
+//注册push服务失败
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Error in registration for APNS. Error: %@", error);
+    
+    //debug
+    /*
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"devicetoken"
+                                                    message:@"error"
+                                                   delegate:self
+                                          cancelButtonTitle:@"关闭"
+                                          otherButtonTitles:@"更新状态",nil];
+    [alert show];
+    [alert release];
+     */
+}
+
+//接收到push消息
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"收到推送消息 ： %@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]);
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"推送通知"
+                                                    message:[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]
+                                                   delegate:self
+                                          cancelButtonTitle:@"关闭"
+                                          otherButtonTitles:@"更新状态",nil];
+    [alert show];
+    [alert release];
 }
 
 @end

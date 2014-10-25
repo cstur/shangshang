@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ServerIP</key>
+	<string>115.28.155.74:8080</string>
+	<key>ClientVersion</key>
+	<string>0.1.0</string>
+	<key>ServerURL</key>
+	<string>http://115.28.155.74:8080/SmurfWeb/rest</string>
+</dict>
+</plist>

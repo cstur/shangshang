@@ -38,6 +38,16 @@
                ReferencedContainer = "container:ShangShang.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E8D0EA9C1995C8EC0079CADF"
+               BuildableName = "ShangShang Tests.xctest"
+               BlueprintName = "ShangShang Tests"
+               ReferencedContainer = "container:ShangShang.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
