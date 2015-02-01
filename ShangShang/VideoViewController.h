@@ -15,15 +15,19 @@
 #import <CoreMedia/CoreMedia.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "CellVideo.h"
 
-@interface VideoViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface VideoViewController : UIViewController<UINavigationControllerDelegate, UITableViewDelegate,UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *listVideo;
+@property (strong, nonatomic) NSMutableArray *listVideo;
 @property (strong, nonatomic) AFHTTPRequestOperationManager* manager;
+@property (nonatomic, retain) MPMoviePlayerController* moviePlayer;
+@property (nonatomic, retain) UIProgressView *cellItemProgress;
 
 - (IBAction)uploadClick:(id)sender;
-- (void)doUpload:(NSURL*)filePath withImg:(NSData*)tempData withType:(NSString*) type;
+- (void)doUpload:(NSURL*)filePath withImg:(NSData*)tempData withType:(NSString*) type withName:(NSString*)fileName;
 - (void)loadTable;
 - (void) ShowAlert:(NSString*)Msg;
 

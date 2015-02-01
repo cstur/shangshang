@@ -97,6 +97,12 @@
  */
 
 - (IBAction)btnCreateTopic:(id)sender {
+    
+    if (self.listTopic.count>=limitTopic) {
+        [CommonUtil ShowAlert:@"议题数量不足，请购买" withDelegate:self];
+        return;
+    }
+    
     UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     CreateTopicViewController *createTopic=(CreateTopicViewController*)[m instantiateViewControllerWithIdentifier:@"createtopic"];

@@ -12,4 +12,5 @@
 @interface StudentVoteViewController : UITableViewController
 @property (nonatomic,assign)SmurfClass *sClass;
 @property (nonatomic, strong) NSArray *listVote;
+
 @end

@@ -59,9 +59,15 @@
 	} completionBlock:^{
         if ([self.result isEqualToString:@"-1"]) {
             //apply failed
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"已经在该课程中" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([self.result isEqualToString:@"-2"]||[self.result isEqualToString:@"-3"]) {
+            //apply failed
             UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"申请失败" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        }else{
+        }
+        else{
             //apply success
             if (self.sClass.needVerify) {
                 UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
+#import "CellVote.h"
 @interface VoteManagementViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 - (IBAction)btnCreateVote:(id)sender;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;

@@ -112,7 +112,8 @@
     //SAFE_ARC_RELEASE(popover); popover=nil;
     
     //the controller we want to present as a popover
-    TeacherMenuTableTableViewController *controller = [[TeacherMenuTableTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TeacherMenuTableTableViewController *controller = [m instantiateViewControllerWithIdentifier:@"menutable"];
     controller.delegate = self;
     popover = [[FPPopoverKeyboardResponsiveController alloc] initWithViewController:controller];
     

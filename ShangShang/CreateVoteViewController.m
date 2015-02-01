@@ -47,8 +47,11 @@
     
 	self.listOption = [[NSMutableArray alloc] initWithObjects:@"签到", nil];
     
-    self.manager = [AFHTTPRequestOperationManager manager];
-	self.manager.responseSerializer = [[AFHTTPResponseSerializer alloc] init];
+    //self.manager = [AFHTTPRequestOperationManager manager];
+	//self.manager.responseSerializer = [[AFHTTPResponseSerializer alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadCompletion:) name:@"uploadcomplete" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFail:) name:@"uploadfail" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,7 +187,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)createVote
 {
-    HttpUtil *util= [HttpUtil alloc];
+    //HttpUtil *util= [HttpUtil alloc];
     //[util simpleJsonParsingPostMetod:self.attachPhoto];
     
     if (self.textTitle.text.length==0) {
@@ -254,114 +257,55 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [self.tableOption setContentOffset:CGPointMake(0.0, cell.frame.origin.y) animated:YES];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 - (void)dealloc {
     [_textTitle release];
     [_tableOption release];
     [_txtField release];
     [_buttonConfirm release];
-    [_preViewImg release];
+    //[_preViewImg release];
+    [_imgButton release];
     [super dealloc];
 }
 
-- (void)doUpload:(NSURL*)filePath withImg:(NSData*)tempData withType:(NSString*) type{
-	// 获取用户选中的行
-	//NSInteger selectedRow = [self.picker selectedRowInComponent:0];
-	// 获取用户选中的文件名
-	//NSString* fileName = [images objectAtIndex:selectedRow];
-	// 根据用户选中的文件名确定需要上传的文件
-	//NSURL *filePath = [[NSBundle mainBundle] URLForResource:fileName
-    //withExtension:@"png"];
-    NSString *fileName = [filePath lastPathComponent];
-    NSString *postURL=[NSString stringWithFormat:@"http://%@/SmurfWeb/View/UploadServlet",[ServerIP getConfigIP]];
-	NSDictionary *parameters = @{@"userid": [SSUser getInstance].userid,@"filetype":type};
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
-    
-    NSMutableURLRequest *request =
-    [serializer multipartFormRequestWithMethod:@"POST" URLString:postURL
-                                    parameters:parameters
-                     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                         if ([type isEqualToString:@"img"]) {
-                             //NSData *imgData=UIImageJPEGRepresentation(tempImg, 0.1f);
-                             [formData appendPartWithFileData:tempData  // 指定上传的文件
-                                                         name:@"file"  // 指定上传文件对应的请求参数名
-                              // 指定上传文件的原始文件名
-                                                     fileName:fileName
-                              // 指定上传文件的MIME类型
-                                                     mimeType:@"image/*"];
-                         }else{
-                             NSData *videoData = [NSData dataWithContentsOfURL:filePath];
-                             [formData appendPartWithFileData:videoData  // 指定上传的文件
-                                                         name:@"file"  // 指定上传文件对应的请求参数名
-                              // 指定上传文件的原始文件名
-                                                     fileName:fileName
-                              // 指定上传文件的MIME类型
-                                                     mimeType:@"video/*"];
-                         }
-                     }];
-    
-    AFHTTPRequestOperation *operation =
-    [self.manager HTTPRequestOperationWithRequest:request
-                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                              attachid=[[NSString alloc] initWithData:responseObject encoding:
-                                                        NSUTF8StringEncoding];
-                                              NSLog(@"Success %@", attachid);
-                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                              NSLog(@"Failure %@", error.description);
-                                          }];
-    
-    [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
-                                        long long totalBytesWritten,
-                                        long long totalBytesExpectedToWrite) {
-        NSLog(@"Wrote %lld/%lld", totalBytesWritten, totalBytesExpectedToWrite);
-    }];
-    
-    [operation start];
-}
-
 - (IBAction)btnAttach:(id)sender {
-    
-    NSLog(@"Enter attach");
     UIActionSheet *choosePhotoActionSheet;
+    NSString *selectTitle=NSLocalizedString(@"选择附件", @"");
+    NSString *cancel=NSLocalizedString(@"取消", @"");
+    NSString *atPhoto=NSLocalizedString(@"拍照", @"");
+    NSString *atPhotoLibrary=NSLocalizedString(@"从照片库选择", @"");
+    NSString *atExistsPhoto=NSLocalizedString(@"从已上传照片选择", @"");
+    NSString *atExistsVideo=NSLocalizedString(@"从已上传视频选择", @"");
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        choosePhotoActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"选择附件", @"")
-                                                             delegate:self
-                                                    cancelButtonTitle:NSLocalizedString(@"取消", @"")
+        choosePhotoActionSheet = [[UIActionSheet alloc] initWithTitle:selectTitle delegate:self cancelButtonTitle:cancel
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:NSLocalizedString(@"拍照", @""), NSLocalizedString(@"从照片库选择", @""),nil];
+        otherButtonTitles:atPhoto, atPhotoLibrary,atExistsPhoto,atExistsVideo,nil];
     } else {
-        choosePhotoActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"选择附件", @"")
-                                                             delegate:self
-                                                    cancelButtonTitle:NSLocalizedString(@"取消", @"")
+        choosePhotoActionSheet = [[UIActionSheet alloc] initWithTitle:selectTitle delegate:self cancelButtonTitle:cancel
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:NSLocalizedString(@"从照片库选择", @""),nil];
+        otherButtonTitles:atPhotoLibrary,atExistsPhoto,atExistsVideo,nil];
     }
     
     [choosePhotoActionSheet showInView:self.view];
     [choosePhotoActionSheet release];
-    
 }
 
 - (IBAction)btnConfrim:(id)sender {
-    NSLog(@"xx");
+    NSLog(@"button confirm invoke");
 }
 
+-(void)uploadCompletion:(NSNotification*)notification{
+    NSLog(@"upload success");
+    attachid = [[notification userInfo] valueForKey:@"attachid"];
+    NSLog(@"Success %@", attachid);
+}
+-(void)uploadFail:(NSNotification*)notification{}
 
 #pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     
 	NSUInteger sourceType = 0;
@@ -372,6 +316,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                 sourceType = UIImagePickerControllerSourceTypeCamera;
                 break;
             case 1:
+                sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+            case 2:
+                sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+            case 3:
                 sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 break;
             default:
@@ -387,12 +337,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         }
     }
     
-
 	imagePickerController.delegate = self;
 	imagePickerController.allowsEditing = YES;
     imagePickerController.sourceType = sourceType;
-
-	//[self presentModalViewController:imagePickerController animated:YES];
     [self presentViewController:imagePickerController animated:YES completion:^{}];
 }
 
@@ -404,12 +351,54 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [picker dismissViewControllerAnimated:YES completion:^{}];
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
 	
+    NSURL *resourceURL = [info objectForKey:UIImagePickerControllerReferenceURL];
+    __block NSString *fileName = nil;
+    
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+    
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *representation = [myasset defaultRepresentation];
+        fileName = [representation filename];
+        NSLog(@"fileName : %@",fileName);
+        dispatch_semaphore_signal(sema);
+    };
+    
+    ALAssetsLibrary* assetslibrary = [[[ALAssetsLibrary alloc] init] autorelease];
+    
+    dispatch_async(queue, ^{
+        [assetslibrary assetForURL:resourceURL
+                       resultBlock:resultblock
+                      failureBlock:^(NSError *error) {
+                          dispatch_semaphore_signal(sema);
+                      }];
+        
+    });
+    
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    dispatch_release(sema);
+    
+    SPostData *postData=[[SPostData alloc] init];
+    NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
+    postData.filePath=url;
+
+    postData.flag=@"vote";
+
+    
 	if([mediaType isEqualToString:@"public.movie"])			//被选中的是视频
 	{
-		NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
+        if (fileName==nil) {
+            NSDate * now = [NSDate date];
+            NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+            [outputFormatter setDateFormat:@"HH:mm:ss"];
+            NSString *newDateString = [outputFormatter stringFromDate:now];
+            fileName=[NSString stringWithFormat:@"%@.mov",newDateString];
+        }
         NSData *videoData = [NSData dataWithContentsOfURL:url];
+        postData.data=videoData;
         [self getPreViewImg:url];
-        [self doUpload:url withImg:videoData withType:@"video"];
+        postData.type=@"video";
         /*
 		targetURL = url;		//视频的储存路径
 		
@@ -427,23 +416,33 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 	}
 	else if([mediaType isEqualToString:@"public.image"])	//被选中的是图片
 	{
+        if (fileName==nil) {
+            NSDate * now = [NSDate date];
+            NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+            [outputFormatter setDateFormat:@"HH:mm:ss"];
+            NSString *newDateString = [outputFormatter stringFromDate:now];
+            fileName=[NSString stringWithFormat:@"%@.png",newDateString];
+        }
         UIImage *tempImg= [info objectForKey:UIImagePickerControllerEditedImage];
-        self.preViewImg.image=tempImg;
-        NSData *imgData=UIImageJPEGRepresentation(tempImg, 0.1f);
-        NSURL *imagePath = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
         
-        [self doUpload:imagePath withImg:imgData withType:@"img"];
+        [self.imgButton setImage:tempImg forState:UIControlStateNormal];
+        NSData *imgData=UIImageJPEGRepresentation(tempImg, 0.1f);
+        postData.data=imgData;
+        postData.type=@"img";
 	}
 	else
 	{
 		NSLog(@"Error media type");
 		return;
 	}
-    
-	//[picker dismissModalViewControllerAnimated:YES];
-
-    //UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    //self.attachPhoto = UIImagePNGRepresentation(editedImage);
+    postData.fileName=fileName;
+    @try {
+        [CommonUtil doUpload:postData withProgressInView:self];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"upload fail");
+        NSLog(@"%@",exception);
+    }
 }
 
 -(void)getPreViewImg:(NSURL *)url
@@ -457,7 +456,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
     UIImage *img = [[UIImage alloc] initWithCGImage:image];
     CGImageRelease(image);
-    self.preViewImg.image=img;
+    //self.preViewImg.image=img;
+    [self.imgButton setImage:img forState:UIControlStateNormal];
     [img release];
 }
 

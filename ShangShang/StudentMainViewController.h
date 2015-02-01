@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
 #import "SSUser.h"
-@interface StudentMainViewController : UITableViewController{
+
+@interface StudentMainViewController :UITableViewController {
 }
 
 
@@ -23,5 +24,8 @@
 @property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (nonatomic, assign) BOOL flagLogin;
 @property (nonatomic, assign) BOOL flagJumpPendingClassView;
+@property(nonatomic, retain) UIImage *headphoto;
+-(void)getPhoto;
+-(void)setPhoto;
 -(void)jumpToPendClassView;
 @end

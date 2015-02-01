@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
 @interface StudentViewVoteTableViewController : UITableViewController
+{
+    BOOL singleSelect;
+    BOOL hasSelect;
+}
 @property (nonatomic,assign)SmurfClass *sClass;
 @property (nonatomic,assign)SSVote *sVote;
 @property (nonatomic, strong) NSArray *listOption;
+@property (nonatomic, strong) NSArray *listRecords;
 - (void)submitVote;
 @end

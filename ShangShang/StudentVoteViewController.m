@@ -29,7 +29,7 @@
 
 -(void)refreshTable{
     @try {
-        self.listVote=[CommonUtil restapi_Student_GetVoteList:self.sClass.classId];
+        self.listVote=[CommonUtil iosapi_VoteList:self.sClass.classId];
     }
     @catch (NSException *exception) {
         NSLog(@"%@",exception);
@@ -70,7 +70,10 @@
     SSVote *voteTemp=[[SSVote alloc] init];
     voteTemp.title=[dict objectForKey:@"title"];
     voteTemp.voteid=[dict objectForKey:@"id"];
+    voteTemp.attachName=[dict objectForKey:@"attachName"];
+    voteTemp.hasAttach=[[dict objectForKey:@"hasAttach"] boolValue];
     voteView.sVote=voteTemp;
+    
     self.navigationItem.title = @"返回";
     [self.navigationController pushViewController:voteView animated:YES];
 }

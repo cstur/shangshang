@@ -8,13 +8,20 @@
 
 #import "ServerIP.h"
 
+#define SERVERIP @"ServerIP"
+
 @implementation ServerIP
 +(NSString*)getConfigIP{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ServerConfig" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    //return [dict objectForKey:@"ServerIP"];
-    //debug server:
-    //return @"172.16.144.123:8082";
-    return @"192.168.2.104:8080";
+    NSString *ip=[self getText];
+    NSLog(@"server ip:%@",ip);
+    return ip;
+}
+
++(NSString*)getText{
+    return [[DBManager getInstance] getDictValue:SERVERIP];
+}
+
++(void)updateText:(NSString*)newIP{
+    [[DBManager getInstance] UpdateDictData:SERVERIP andValue:newIP];
 }
 @end

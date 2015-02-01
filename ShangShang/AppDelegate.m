@@ -10,9 +10,13 @@
 
 @implementation AppDelegate
 
+//@synthesize downloadCache = _downloadCache;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"iPhone simulator not support push!");
+#elif TARGET_OS_IPHONE
     //消息推送支持的类型
     UIRemoteNotificationType types =
     (UIRemoteNotificationTypeBadge
@@ -20,6 +24,42 @@
      |UIRemoteNotificationTypeAlert);
     //注册消息推送
     [[UIApplication sharedApplication]registerForRemoteNotificationTypes:types];
+#else
+    NSLog(@"unknown target!");
+#endif
+
+    DBManager *dbManager=[[DBManager alloc] init];
+    [dbManager createDictTable];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ServerConfig" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    [dbManager InsertOrUpdateDictData:@"ServerIP" andValue:[dict objectForKey:@"ServerIP"]];
+    /*
+    UIColor *barColor=[UIColor colorWithRed:22.0/255.0 green:155.0/255.0 blue:213.0/255.0 alpha:1];
+    UIColor *textColor=[UIColor whiteColor];
+    CGFloat titleSize=12.0;
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:textColor, NSForegroundColorAttributeName, [UIFont fontWithName:@"FontNAme" size:titleSize], NSFontAttributeName, nil]];
+    [[UINavigationBar appearance] setTintColor:barColor];
+    */
+    /*
+    //初始化ASIDownloadCache缓存对象
+    ASIDownloadCache *cache = [[ASIDownloadCache alloc] init];
+    self.downloadCache = cache;
+    [cache release];
+    
+    //路径
+    NSArray *paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    //设置缓存存放路径
+    
+    [self.downloadCache setStoragePath:[documentDirectorystringByAppendingPathComponent:@"resource"]];
+    
+    //设置缓存策略
+    
+    [self.downloadCache setDefaultCachePolicy:ASIOnlyLoadIfNotCachedCachePolicy];
+    
+    */
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
@@ -52,11 +92,10 @@
 
 //注册push服务
 - (void)application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:
-                       　　　　[NSCharacterSet characterSetWithCharactersInString:@"<>"]]; //去掉"<>"
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]; //去掉"<>"
     token = [[token description] stringByReplacingOccurrencesOfString:@" " withString:@""];//去掉中间空格
     NSLog(@"deviceToken: %@", token);
-    deviceToken=token;
+    [SSUser getInstance].deviceToken=token;
     //debug
     /*
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"devicetoken"
@@ -96,5 +135,11 @@
     [alert show];
     [alert release];
 }
-
+/*
+- (void)dealloc
+{
+    [_downloadCache release];
+    [super dealloc];
+}
+*/
 @end

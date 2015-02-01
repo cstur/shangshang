@@ -7,8 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SSUser.h"
+#import "HttpUtil.h"
+#import "SmurfFramework.h"
+#import "DBManager.h"
 #import "CommonUtil.h"
+#import "NSManagedObject.h"
 
 @interface ShangShang_Tests : XCTestCase
 
@@ -19,50 +22,103 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testPost
 {
-    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-    [SSUser initWith:@"1" andPassword:@"1"];
-    SSUser *user=[SSUser getInstance];
-    NSLog(@"%@",user.nickName);
+    [[HttpUtil getInstance] post:@"http://115.28.155.74:8080/SmurfWeb/rest/ios/userinfo?username=Admin&password=@Admin" withCompletionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSDictionary *obj=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        XCTAssertEqual(@"0", [obj objectForKey:@"role"],"user should be admin");
+    }];
 }
 
--(void)testJsonArray{
-    SSVote *vote=[SSVote alloc];
-    vote.title=@"test1";
-    vote.attachids=@"197";
-    vote.classid=@"100034";
+-(void) testGetNoneExistObject{
+    NSManagedObjectContext* managedObjectContext=[[DBManager getInstance] managedObjectContext];
+    NSError * error = nil;
     
-    
-    //NSMutableArray *arr=[[NSMutableArray alloc] init];
-    SSVoteOption *op=[SSVoteOption alloc];
-    op.optionId=@"0";
-    op.optionContent=@"op1";
-    op.polledCount=@"0";
-    op.voteId=@"0";
-    op.isAnswer=@"false";
-    
-    SSVoteOption *op2=[SSVoteOption alloc];
-    op2.optionId=@"0";
-    op2.optionContent=@"op2";
-    op2.polledCount=@"0";
-    op2.voteId=@"0";
-    op2.isAnswer=@"true";
-    
-    NSArray *body = [[NSArray alloc] initWithObjects:op.dictionary,op2.dictionary, nil];
-    
-    vote.options=body;
+    ConfigData *user = (ConfigData *)[NSEntityDescription insertNewObjectForEntityForName:@"ConfigData"
+                                                                 inManagedObjectContext:managedObjectContext];
 
-    [CommonUtil restapi_CreateVote:vote.dictionary];
+    
+    if (![managedObjectContext save:&error])
+    {
+        NSLog(@"add entity error = %@",error);
+    }
+    
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    NSEntityDescription * configObj = [NSEntityDescription entityForName:@"ConfigData" inManagedObjectContext:managedObjectContext];
+    [request setEntity:configObj];
+    
+    NSArray * result = [managedObjectContext executeFetchRequest:request error:&error];
+    NSLog(@"%d",result.count);
+    if (!error)
+    {
+        [result enumerateObjectsUsingBlock:^(ConfigData * obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"DICT:%@",[obj getDictionary]);
+        }];
+    }
+    else
+    {
+        NSLog(@"error seach  = %@",error);
+    }
 }
 
+- (void) testSmurfDB{
+    
+    NSManagedObjectContext* managedObjectContext=[[DBManager getInstance] managedObjectContext];
+    NSError * error = nil;
+    
+
+    SmurfUser *user = (SmurfUser *)[NSEntityDescription insertNewObjectForEntityForName:@"SmurfUser"
+                                                                 inManagedObjectContext:managedObjectContext];
+    user.username=@"CCC1";
+    user.password=@"DDD";
+    user.age=[NSNumber numberWithInt:1];
+    
+    
+    if (![managedObjectContext save:&error])
+    {
+        NSLog(@"add entity error = %@",error);
+    }
+     /*
+    NSDictionary *user=[CommonUtil iosapi_userinfo:@"t" Password:@"t"];
+    SmurfUser *userModel = (SmurfUser *)[NSEntityDescription insertNewObjectForEntityForName:@"SmurfUser"
+                                                                 inManagedObjectContext:managedObjectContext];
+    [userModel safeSetValuesForKeysWithDictionary:user dateFormatter:nil];
+    NSLog(@"%@",userModel.username);  */
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    NSEntityDescription * desption = [NSEntityDescription entityForName:@"SmurfUser" inManagedObjectContext:managedObjectContext];
+    [request setEntity:desption];
+
+    NSArray * result = [managedObjectContext executeFetchRequest:request error:&error];
+    if (!error)
+    {
+        [result enumerateObjectsUsingBlock:^(SmurfUser * obj, NSUInteger idx, BOOL *stop) {
+            //NSLog(@"--%d,%@,%@,%@--/n",idx,obj.username,obj.password,obj.age);
+            NSLog(@"DI0CT:%@",[obj getDictionary]);
+        }];
+    }
+    else
+    {
+        NSLog(@"error seach  = %@",error);
+    }
+
+    if (result && [result count])
+    {
+        for (NSManagedObject *obj in result)
+        {
+            [managedObjectContext deleteObject:obj];
+        }
+        if (![managedObjectContext save:&error])
+        {
+            NSLog(@"error:%@",error);
+        }
+    }
+  
+}
 @end

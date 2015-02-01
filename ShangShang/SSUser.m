@@ -8,7 +8,6 @@
 
 #import "SSUser.h"
 #import "HttpUtil.h"
-#import "UpdateManager.h"
 #import "CommonUtil.h"
 @implementation SSUser
 
@@ -36,8 +35,10 @@
 
 @synthesize needUpdateFace = needUpdateFace_;
 
-//@synthesize grade = grade_;
+@synthesize deviceToken=deviceToken_;
 @synthesize score = score_;
+@synthesize signature;
+@synthesize classLimit = classLimit_;
 
 -(void) dealloc {
     self.userid = nil;
@@ -131,15 +132,16 @@ static SSUser *instance = nil;
 }
 
 +(BOOL) initWith:(NSString *)userName andPassword:(NSString *)password{
-    NSDictionary *user=[CommonUtil restapi_InitUser:userName Password:password];
+    NSDictionary *user=[CommonUtil iosapi_userinfo:userName Password:password];
     
     if (user==nil) {
         return FALSE;
     }else{
         [SSUser getInstance].userid=[user objectForKey:@"id"];
+        NSLog(@"user id is:%@",[user objectForKey:@"id"]);
         [SSUser getInstance].nickName=[user objectForKey:@"nickName"];
         [SSUser getInstance].userName=[user objectForKey:@"username"];
-        [SSUser getInstance].imgData=[user objectForKey:@"picture"];
+        [SSUser getInstance].imgData=@"";
         [SSUser getInstance].password=[user objectForKey:@"password"];
         [SSUser getInstance].email=[user objectForKey:@"email"];
         [SSUser getInstance].address=[user objectForKey:@"address"];
@@ -147,10 +149,12 @@ static SSUser *instance = nil;
         [SSUser getInstance].role=[user objectForKey:@"role"];
         [SSUser getInstance].grade=[user objectForKey:@"grade"];
         [SSUser getInstance].score=[user objectForKey:@"score"];
+        [SSUser getInstance].signature=[user objectForKey:@"signature"];
         [SSUser getInstance].needUpdateFace=@"1";
-        UpdateManager *um=[[UpdateManager alloc] initwithType:0];
-        [um updateValuebykey:@"username" value:[SSUser getInstance].userName];
-        [um updateValuebykey:@"password" value:[SSUser getInstance].password];
+        DBManager *dbManager=[[DBManager alloc] init];
+        [dbManager InsertOrUpdateDictData:@"username" andValue:[SSUser getInstance].userName];
+        [dbManager InsertOrUpdateDictData:@"password" andValue:[SSUser getInstance].password];
+
         return TRUE;
     }
     return true;

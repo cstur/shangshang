@@ -62,6 +62,7 @@
     if (self.textGroupName.text.length==0) {
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"名称不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        return;
     }
     NSDictionary *body= [NSDictionary dictionaryWithObjectsAndKeys:
                          self.topicID,@"bigGroupId",

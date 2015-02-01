@@ -36,7 +36,9 @@
     
     //NSString *grade_;
     NSString *score_;
+    NSString *deviceToken_;
     
+    NSString *classLimit_;
 }
 
 @property (nonatomic, retain) NSString *userid;
@@ -64,9 +66,12 @@
 @property (nonatomic, retain) NSString *needUpdateFace;
 
 @property (nonatomic, assign) NSNumber *grade;
-//@property (nonatomic, assign) NSNumber *score;
-//@property (nonatomic, retain) NSString *grade;
+@property (nonatomic, assign) NSString *signature;
+@property (nonatomic, retain) NSString *deviceToken;
 @property (nonatomic, retain) NSString *score;
+
+@property (nonatomic, retain) NSString *classLimit;
+
 +(SSUser*)getInstance;
 
 + (NSString *)urlencode:(NSString*)input;

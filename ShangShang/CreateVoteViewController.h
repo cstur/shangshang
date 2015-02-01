@@ -16,25 +16,26 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface CreateVoteViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface CreateVoteViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet UITextField *textTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableOption;
 @property (retain, nonatomic) IBOutlet UIButton *buttonConfirm;
 @property (retain, nonatomic) IBOutlet UITextField *txtField;
-@property (retain, nonatomic) IBOutlet UIImageView *preViewImg;
+@property (retain, nonatomic) IBOutlet UIButton *imgButton;
 
 
 @property (nonatomic, retain) NSData *attachPhoto;
-@property (strong, nonatomic) AFHTTPRequestOperationManager* manager;
 @property (nonatomic, strong) NSMutableArray *listOption;
 @property (nonatomic,assign)  SmurfClass *sClass;
 
 - (IBAction)btnAttach:(id)sender;
 - (IBAction)btnConfrim:(id)sender;
+
 - (void)createVote;
 - (void)createVoteTask;
 - (void)createComplete;
-- (void)doUpload:(NSURL*)filePath withImg:(UIImage*)tempImg;
 
+-(void)uploadCompletion:(NSNotification*)notification;
+-(void)uploadFail:(NSNotification*)notification;
 @end

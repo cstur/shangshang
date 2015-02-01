@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "DBManager.h"
 @interface ServerIP : NSObject
 +(NSString*)getConfigIP;
++(NSString*)getText;
++(void)updateText:(NSString*)newIP;
 @end

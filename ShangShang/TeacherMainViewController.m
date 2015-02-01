@@ -9,6 +9,7 @@
 #import "TeacherMainViewController.h"
 #import "CommonUtil.h"
 #import "LoginViewController.h"
+
 @interface TeacherMainViewController ()
 
 @end
@@ -19,68 +20,76 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
-
 -(void)openLoginDialog{
-    /*
-    NSLog(@"Enter login dialog");
-    UpdateManager *um=[[UpdateManager alloc] initwithType:0];
-    [um updateValuebykey:@"username" value:@""];
-    [um updateValuebykey:@"password" value:@""];
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [CommonUtil clearUserNameandPassword];
     
     UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *newV=(LoginViewController*)[m instantiateViewControllerWithIdentifier:@"navLogin"];
-    UIWindow *window =[UIApplication sharedApplication].keyWindow;
-    window.rootViewController=newV;
-    [newV release];*/
-    
-    NSLog(@"Enter login dialog");
-    UpdateManager *um=[[UpdateManager alloc] initwithType:0];
-    [um updateValuebykey:@"username" value:@""];
-    [um updateValuebykey:@"password" value:@""];
-    
-    UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *newV=(LoginViewController*)[m instantiateViewControllerWithIdentifier:@"navLogin"];
-    
-    [self presentViewController:newV animated:YES completion:^{
-        NSLog(@"complete login view");
-    }];
+    [self presentViewController:newV animated:YES completion:^{}];
 }
 
 -(void)setUserInfo:(SSUser *)userInfo{
     self.labelUserName.text=[NSString stringWithFormat:@"账号：%@",userInfo.userName];
     self.labelNickName.text=userInfo.nickName;
-    if ([userInfo.imgData isEqualToString:@""]) {
-        UIImage *image = [UIImage imageNamed: @"default_phone.jpg"];
-        [self.userPhoto setImage:image];
-    }else{
-        NSData *imageData = [[ImageUtil alloc] dataFromBase64EncodedString:userInfo.imgData];
-        UIImage *myImage = [UIImage imageWithData:imageData];
-        self.userPhoto.image=myImage;
-    }
+    
+    [CommonUtil showWaiting:self.navigationController whileExecutingBlock:^{
+        [self getPhoto];
+    } completionBlock:^{
+        [self setPhoto];
+    }];
+}
+
+-(void)getPhoto{
+    self.headphoto=[CommonUtil getImage:[SSUser getInstance].userid];
+}
+
+-(void)setPhoto{
+    self.userPhoto.image=self.headphoto;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-        self.navigationItem.title = TITLE_SHANGSHANG;
+    self.navigationItem.title = TITLE_SHANGSHANG;
     SSUser *user=[SSUser getInstance];
-    if ([user.needUpdateFace isEqualToString:@"1"]) {
-        SSUser *user=[SSUser getInstance];
-        [self setUserInfo:user];
-        user.needUpdateFace=@"0";
-    }
+    [self setUserInfo:user];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationItem.title = TITLE_SHANGSHANG;
+    [self updateConfig];
     // Do any additional setup after loading the view.
 }
+
+-(void)updateConfig{
+    HttpUtil *httpUtil=[[HttpUtil alloc] init];
+    NSString* url = [NSString stringWithFormat:@"SmurfWeb/rest/ios/resource?userid=%@",[SSUser getInstance].userid];
+    [httpUtil GetAsynchronous:url withDelegate:self];
+}
+
+
+-(void)requestFinished:(ASIHTTPRequest*)request
+{
+    NSLog(@"get config data complete");
+    NSData *response = [request responseData];
+    NSDictionary *obj=[NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+
+    limitClass=[[obj objectForKey:@"classNumber"] intValue];
+    limitTopic=[[obj objectForKey:@"topicNumber"] intValue];
+    limitVote=[[obj objectForKey:@"voteNumber"] intValue];
+    NSLog(@"limit data:[class:%d],[topic:%d],[vote:%d]",limitClass,limitTopic,limitVote);
+}
+
+-(void)requestFailed:(ASIHTTPRequest*)request
+{
+    NSError *error = [request error];
+    NSLog(@"%@",error);
+}
+
 
 - (void)didReceiveMemoryWarning
 {

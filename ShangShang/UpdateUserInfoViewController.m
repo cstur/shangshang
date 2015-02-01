@@ -49,18 +49,8 @@
     
     self.textGrade.text=[NSString stringWithFormat:@"%@",user.grade];
     self.textScore.text=[NSString stringWithFormat:@"%@",user.score];
-    
-    if ([user.imgData isEqualToString:@""]) {
-        UIImage *image = [UIImage imageNamed: @"default_phone.jpg"];
-        [self.headphoto setImage:image];
-    }else{
-        NSData *imageData = [[ImageUtil alloc] dataFromBase64EncodedString:user.imgData];
-        UIImage *myImage = [UIImage imageWithData:imageData];
-        self.headphoto.image=myImage;
-    }
-    
-    // Do any additional setup after loading the view.
-    
+    self.headphoto.image=[CommonUtil getImage:user.userid];
+
     self.labelMessage.text=@"";
 }
 

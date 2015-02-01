@@ -13,7 +13,7 @@
 @end
 
 @implementation VideoViewController
-
+@synthesize moviePlayer = _moviePlayer;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,7 +31,11 @@
     
     self.manager = [AFHTTPRequestOperationManager manager];
 	self.manager.responseSerializer = [[AFHTTPResponseSerializer alloc] init];
+    //self.cellItemProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    
     [self loadTable];
+    
+
 }
 
 -(void)loadTable{
@@ -40,14 +44,15 @@
     NSMutableArray* mut=[NSMutableArray arrayWithCapacity:10];
     for(NSDictionary* obj in arr){
         NSString* fileType=[obj objectForKey:@"fileExtension"];
+
         if ([fileType isEqualToString:@"mp4"]||
-            [fileType isEqualToString:@"avi"]||
+            [fileType isEqualToString:@"m4v"]||
             [fileType isEqualToString:@"mov"]||
-            [fileType isEqualToString:@"mpeg"]) {
+            [fileType isEqualToString:@"3gp"]) {
             [mut addObject:obj];
         }
     }
-    self.listVideo=[mut copy];
+    self.listVideo=mut;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -57,16 +62,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier=@"CellIdentifier";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
-    if (cell==nil) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    NSString *CellIdentifier = @"cellvideo";
+    CellVideo *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSInteger row=[indexPath row];
     NSDictionary *rowDict=[self.listVideo objectAtIndex:row];
-    cell.textLabel.text=[rowDict objectForKey:@"fileName"];
+    cell.labelVideoName.text=[rowDict objectForKey:@"fileName"];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    [cell.progressBar setHidden:YES];
     return cell;
 }
 
@@ -75,10 +78,19 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)doUpload:(NSURL*)filePath withImg:(NSData*)tempData withType:(NSString*) type{
-    NSString *fileName = [filePath lastPathComponent];
+- (void)doUpload:(NSURL*)filePath withImg:(NSData*)tempData withType:(NSString*) type withName:(NSString*)fileName{
+    //NSString *fileName = [filePath lastPathComponent];
+    if (fileName==nil) {
+        NSDate * now = [NSDate date];
+        NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+        [outputFormatter setDateFormat:@"HH:mm:ss"];
+        NSString *newDateString = [outputFormatter stringFromDate:now];
+        NSLog(@"newDateString %@", newDateString);
+        [outputFormatter release];
+        fileName=@"takefromphoto";
+    }
     NSString *postURL=[NSString stringWithFormat:@"http://%@/SmurfWeb/View/UploadServlet",[ServerIP getConfigIP]];
-	NSDictionary *parameters = @{@"userid": [SSUser getInstance].userid,@"filetype":type,@"flag":@"teacher"};
+	NSDictionary *parameters = @{@"userid": [SSUser getInstance].userid,@"filetype":type,@"flag":@"teacher",@"filename":fileName};
     
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
     
@@ -108,6 +120,7 @@
                                         long long totalBytesWritten,
                                         long long totalBytesExpectedToWrite) {
         NSLog(@"Wrote %lld/%lld", totalBytesWritten, totalBytesExpectedToWrite);
+        //self.cellItemProgress.progress=(double)totalBytesWritten /  (double)totalBytesExpectedToWrite;
     }];
     
     [operation start];
@@ -124,7 +137,7 @@
     
 	NSUInteger sourceType = 0;
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerController.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,nil];
         switch (buttonIndex) {
             case 0:
                 sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -152,6 +165,13 @@
     [self presentViewController:imagePickerController animated:YES completion:^{}];
 }
 
+- (void)dealloc
+{
+    [_moviePlayer release];
+        [_tableView release];
+    [super dealloc];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:^{}];
@@ -160,9 +180,44 @@
 	if([mediaType isEqualToString:@"public.movie"])
 	{
 		NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
+        NSURL *resourceURL = [info objectForKey:UIImagePickerControllerReferenceURL];
+        
+        __block NSString *fileName = nil;
+        
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+        
+        ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+        {
+            ALAssetRepresentation *representation = [myasset defaultRepresentation];
+            fileName = [representation filename];
+            NSLog(@"fileName : %@",fileName);
+            dispatch_semaphore_signal(sema);
+        };
+        
+        ALAssetsLibrary* assetslibrary = [[[ALAssetsLibrary alloc] init] autorelease];
+        
+        dispatch_async(queue, ^{
+            [assetslibrary assetForURL:resourceURL
+                           resultBlock:resultblock
+                          failureBlock:^(NSError *error) {
+                              dispatch_semaphore_signal(sema);
+                          }];
+
+        });
+        
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+        dispatch_release(sema);
+        
         NSData *videoData = [NSData dataWithContentsOfURL:url];
         [self getPreViewImg:url];
-        [self doUpload:url withImg:videoData withType:@"video"];
+        
+        NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
+        [m setObject:fileName forKey:@"fileName"];
+        
+        [self.listVideo addObject:m];
+        [self.tableView reloadData];
+        [self doUpload:url withImg:videoData withType:@"video" withName:fileName];
 	}
 	else
 	{
@@ -192,11 +247,6 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (void)dealloc {
-    [_tableView release];
-    [super dealloc];
-}
-
 - (IBAction)uploadClick:(id)sender {
     UIActionSheet *choosePhotoActionSheet;
     
@@ -218,4 +268,36 @@
     [choosePhotoActionSheet release];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row=[indexPath row];
+    NSDictionary *dict=[self.listVideo objectAtIndex:row];
+    NSString *fileName=[dict objectForKey:@"filePath"];
+    NSString *urlStr=[NSString stringWithFormat:@"http://%@/SmurfWeb/users/%@/video/%@",[ServerIP getConfigIP],[SSUser getInstance].userid,fileName];
+    NSLog(@"%@",urlStr);
+    NSString *videoPath= [CommonUtil downloadVideo:urlStr withFileName:fileName];
+    if (![videoPath isEqualToString:@""]) {
+        self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:videoPath]] autorelease];
+        self.moviePlayer.view.frame = self.view.bounds;
+        [self.view addSubview:self.moviePlayer.view];
+        self.moviePlayer.fullscreen = YES;
+        self.moviePlayer.scalingMode = MPMovieScalingModeFill;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(movieFinishedCallback:)
+                                                     name:MPMoviePlayerPlaybackDidFinishNotification
+                                                   object:self.moviePlayer];
+        [self.moviePlayer play];
+    }
+}
+
+-(void)movieFinishedCallback:(NSNotification*)notify {
+    MPMoviePlayerController* theMovie = [notify object];
+    
+    [[NSNotificationCenter
+      defaultCenter] removeObserver:self
+     name:MPMoviePlayerPlaybackDidFinishNotification
+     object:theMovie];
+    
+    [theMovie.view removeFromSuperview];
+    [theMovie release];
+}
 @end

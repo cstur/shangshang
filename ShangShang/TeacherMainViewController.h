@@ -15,4 +15,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *labelNickName;
 - (void)openLoginDialog;
 -(void)setUserInfo:(SSUser *)userInfo;
+
+@property(nonatomic, retain) UIImage *headphoto;
+-(void)getPhoto;
+-(void)setPhoto;
 @end

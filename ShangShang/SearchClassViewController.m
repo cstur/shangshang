@@ -27,13 +27,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"查询课程";
+    if ([SEARCHFROM isEqualToString:@"class"]) {
+        self.navigationItem.title = @"查询课程";
+    }else if([SEARCHFROM isEqualToString:@"group"]){
+        self.navigationItem.title = @"查询讨论组";
+    }
+
     [self.tableClass setDataSource:self];
     [self.tableClass setDelegate:self];
     
     //设定搜索栏ScopeBar隐藏
     [self.searchBar setShowsScopeBar:YES];
     [self.searchBar sizeToFit];
+    if([SEARCHFROM isEqualToString:@"group"]){
+        self.searchBar.placeholder=@"请输入讨论组名称";
+    }
 }
 
 -(void)loadData:(NSString*)searchText{
@@ -44,7 +52,15 @@
     }
     @try {
         HttpUtil *httpUtil=[[HttpUtil alloc] init];
-        NSString* url = [NSString stringWithFormat:@"SmurfWeb/rest/student/searchclasses?searchtext=%@",trimmedString];
+        
+        NSString* url = @"";
+        
+        if ([SEARCHFROM isEqualToString:@"class"]) {
+            url = [NSString stringWithFormat:@"SmurfWeb/rest/student/searchclasses?searchtext=%@",trimmedString];
+        }else if([SEARCHFROM isEqualToString:@"group"]){
+            url = [NSString stringWithFormat:@"SmurfWeb/rest/student/searchgroups?topicid=%@",trimmedString];
+        }
+        
          url = [url stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingUTF8)];
         NSData *response=[httpUtil SendGetRequest:url];
         if (response==nil) {
@@ -106,20 +122,25 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row=[indexPath row];
-    NSDictionary *dict=[self.listClass objectAtIndex:row];
-    UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ApplyClassViewController *applyclassView=(ApplyClassViewController*)[m instantiateViewControllerWithIdentifier:@"applyclassview"];
-    SmurfClass *classTemp=[[SmurfClass alloc] init];
-    classTemp.classId=[dict objectForKey:@"id"];
-    classTemp.className=[dict objectForKey:@"name"];
-    classTemp.teacherName=[dict objectForKey:@"userName"];
-    classTemp.classDescription=[dict objectForKey:@"description"];
-    NSNumber *numberVerify=[dict objectForKey:@"needVerify"];
-    classTemp.needVerify=[numberVerify boolValue];
-    applyclassView.sClass=classTemp;
-    self.navigationItem.title = @"返回";
-    [self.navigationController pushViewController:applyclassView animated:YES];
+    if ([SEARCHFROM isEqualToString:@"class"]) {
+        NSInteger row=[indexPath row];
+        NSDictionary *dict=[self.listClass objectAtIndex:row];
+        UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ApplyClassViewController *applyclassView=(ApplyClassViewController*)[m instantiateViewControllerWithIdentifier:@"applyclassview"];
+        SmurfClass *classTemp=[[SmurfClass alloc] init];
+        classTemp.classId=[dict objectForKey:@"id"];
+        classTemp.className=[dict objectForKey:@"name"];
+        classTemp.teacherName=[dict objectForKey:@"userName"];
+        classTemp.classDescription=[dict objectForKey:@"description"];
+        NSNumber *numberVerify=[dict objectForKey:@"needVerify"];
+        classTemp.needVerify=[numberVerify boolValue];
+        applyclassView.sClass=classTemp;
+        self.navigationItem.title = @"返回";
+        [self.navigationController pushViewController:applyclassView animated:YES];
+    }else if([SEARCHFROM isEqualToString:@"group"]){
+
+    }
+
 }
 
 #pragma mark --UISearchBarDelegate 协议方法

@@ -15,13 +15,17 @@
     NSString *attachids_;
     NSString *classid_;
     NSArray *options_;
+    NSString *attachName_;
 }
 
 @property (nonatomic, retain) NSString *voteid;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *attachids;
+@property (nonatomic, retain) NSString *attachName;
 @property (nonatomic, retain) NSString *classid;
 @property (nonatomic, retain) NSArray *options;
+@property (nonatomic, assign) bool hasAttach;
+
 -(NSDictionary *)dictionary;
 -(NSDictionary *)dictionarywithAttach;
 @end

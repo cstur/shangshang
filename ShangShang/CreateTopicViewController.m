@@ -93,6 +93,9 @@
 }
 
 - (IBAction)btnCreateTopic:(id)sender {
+    
+
+    
     if (self.textTopicName.text.length==0||self.textViewTopicDescription.text.length==0) {
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"议题名和议题描述不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];

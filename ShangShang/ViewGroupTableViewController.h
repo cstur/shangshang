@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
+#import "ChatView.h"
+#import "ChatViewTest.h"
 @interface ViewGroupTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *listGroup;
 @property (nonatomic, retain) NSString *topicID;

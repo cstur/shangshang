@@ -173,10 +173,9 @@
         [SSUser initWith:self.user.userName andPassword:self.user.password];
         SSUser *user=[SSUser getInstance];
         user.nickName=@"新用户";
-        UpdateManager *um=[[UpdateManager alloc] initwithType:0];
-
-        [um updateValuebykey:@"username" value:self.user.userName];
-        [um updateValuebykey:@"password" value:self.user.password];
+        DBManager *dbManager=[[DBManager alloc] init];
+        [dbManager UpdateDictData:@"username" andValue:self.user.userName];
+        [dbManager UpdateDictData:@"password" andValue:self.user.password];
         return YES;
     }
     return NO;

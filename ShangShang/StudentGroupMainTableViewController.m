@@ -109,6 +109,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
+    SEARCHFROM=@"group";
+
     if ([segue.identifier isEqualToString:@"segueCreateGroup"]) {
         CreateGroupViewController *createGroup=segue.destinationViewController;
         createGroup.topicID=self.topicID;

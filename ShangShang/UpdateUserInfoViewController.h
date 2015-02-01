@@ -16,6 +16,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UITextField *textName;
+
 @property (retain, nonatomic) IBOutlet UITextField *textMail;
 @property (retain, nonatomic) IBOutlet UITextField *textTel;
 @property (retain, nonatomic) IBOutlet UITextField *textAddress;

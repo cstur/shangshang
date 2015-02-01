@@ -43,7 +43,7 @@
 
 -(void)refreshTable{
     @try {
-        self.listVote=[CommonUtil restapi_GetVoteList:self.sClass.classId];
+        self.listVote=[CommonUtil iosapi_VoteList:self.sClass.classId];
     }
     @catch (NSException *exception) {
         NSLog(@"%@",exception);
@@ -54,7 +54,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -70,6 +69,8 @@
     SSVote *voteTemp=[[SSVote alloc] init];
     voteTemp.title=[dict objectForKey:@"title"];
     voteTemp.voteid=[dict objectForKey:@"id"];
+    voteTemp.attachName=[dict objectForKey:@"attachName"];
+    voteTemp.hasAttach=[[dict objectForKey:@"hasAttach"] boolValue];
     voteView.sVote=voteTemp;
     //self.navigationItem.title = @"返回";
     voteView.sClass=self.sClass;
@@ -77,15 +78,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIdentifier=@"CellIdentifier";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell==nil) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    NSString *CellIdentifier = @"cellvote";
+    CellVote *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSInteger row=[indexPath row];
     NSDictionary *rowDict=[self.listVote objectAtIndex:row];
-    cell.textLabel.text=[rowDict objectForKey:@"title"];
+    bool hasAttach=[[rowDict objectForKey:@"hasAttach"] boolValue];
+    if (hasAttach) {
+        cell.imgAttachFlag.image=[UIImage imageNamed: @"icon_attach.jpg"];
+    }
+    //NSDictionary *timeDict=[rowDict objectForKey:@"startTime"];
+    cell.voteTitle.text=[rowDict objectForKey:@"title"];
+    //cell.voteTime.text=[timeDict objectForKey:@"time"];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -101,7 +105,16 @@
 }
 */
 
+
+
 - (IBAction)btnCreateVote:(id)sender {
+
+        if (self.listVote.count>=limitVote) {
+            [CommonUtil ShowAlert:@"投票数量不足，请购买" withDelegate:self];
+            return;
+        }
+
+    
     UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     CreateVoteViewController *createVote=(CreateVoteViewController*)[m instantiateViewControllerWithIdentifier:@"createvote"];

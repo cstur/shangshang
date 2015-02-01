@@ -14,6 +14,7 @@
 @synthesize classid = classid_;
 @synthesize options = options_;
 @synthesize voteid = voteid_;
+@synthesize attachName = attachName_;
 
 -(NSDictionary *)dictionary {
     return [NSDictionary dictionaryWithObjectsAndKeys:

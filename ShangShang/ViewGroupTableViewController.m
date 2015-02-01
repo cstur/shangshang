@@ -30,11 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([[SSUser getInstance].role intValue]==2) {
-        self.listGroup=[CommonUtil restapi_Student_GetGroupList:[SSUser getInstance].userid andTopicId:self.topicID];
-    }else{
+    //if ([[SSUser getInstance].role intValue]==2) {
+       // self.listGroup=[CommonUtil restapi_Student_GetGroupList:[SSUser getInstance].userid andTopicId:self.topicID];
+   // }else{
         self.listGroup=[CommonUtil restapi_GetGroupList:self.topicID];
-    }
+    //}
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,6 +66,16 @@
     cell.textLabel.text=[rowDict objectForKey:@"name"];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChatViewTest *chatView=(ChatViewTest*)[m instantiateViewControllerWithIdentifier:@"chat1"];
+    NSInteger row=[indexPath row];
+    NSDictionary *rowDict=[self.listGroup objectAtIndex:row];
+    chatView.groupID=[rowDict objectForKey:@"id"];
+    self.navigationItem.title = @"返回";
+    [self.navigationController pushViewController:chatView animated:YES];
 }
 
 /*

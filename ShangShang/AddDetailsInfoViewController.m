@@ -107,8 +107,8 @@
 -(void)ShowRoot{
     @try
     {
-        SSUser *user=[SSUser getInstance];
-        int role=[user.role intValue];
+        SSUser *userTemp=[SSUser getInstance];
+        int role=[userTemp.role intValue];
         if (role==2) {
             UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UINavigationController *newV=(UINavigationController*)[m instantiateViewControllerWithIdentifier:@"navstudent"];
