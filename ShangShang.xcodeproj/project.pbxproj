@@ -16,6 +16,8 @@
 		36181D1E1A14AED5009A88B8 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 36181D131A14AED5009A88B8 /* AFURLRequestSerialization.m */; };
 		36181D1F1A14AED5009A88B8 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 36181D151A14AED5009A88B8 /* AFURLResponseSerialization.m */; };
 		36181D201A14AED5009A88B8 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36181D171A14AED5009A88B8 /* AFURLSessionManager.m */; };
+		CCC6A9FD1B0E25D00027A953 /* SmurfView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FC1B0E25D00027A953 /* SmurfView.m */; };
+		CCC6A9FF1B0E281F0027A953 /* BasicUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */; };
 		E80DBDF51983F52C00AE5FE3 /* AddDetailsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */; };
 		E80DBDF81984951500AE5FE3 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF71984951500AE5FE3 /* ImageUtil.m */; };
 		E80DBDFC1984AC0E00AE5FE3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDFB1984AC0E00AE5FE3 /* NSData+Base64.m */; };
@@ -253,6 +255,9 @@
 		36181D151A14AED5009A88B8 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		36181D161A14AED5009A88B8 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		36181D171A14AED5009A88B8 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		CCC6A9FB1B0E25D00027A953 /* SmurfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmurfView.h; path = UI/SmurfView.h; sourceTree = "<group>"; };
+		CCC6A9FC1B0E25D00027A953 /* SmurfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmurfView.m; path = UI/SmurfView.m; sourceTree = "<group>"; };
+		CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicUsage.m; sourceTree = "<group>"; };
 		E80DBDF31983F52C00AE5FE3 /* AddDetailsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDetailsInfoViewController.h; sourceTree = "<group>"; };
 		E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDetailsInfoViewController.m; sourceTree = "<group>"; };
 		E80DBDF61984951500AE5FE3 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
@@ -680,6 +685,17 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		CCC6A9F11B0B6DC80027A953 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E8BD7EDF1973C86200A663E1 /* LoginViewController.h */,
+				E8BD7EE01973C86200A663E1 /* LoginViewController.m */,
+				CCC6A9FB1B0E25D00027A953 /* SmurfView.h */,
+				CCC6A9FC1B0E25D00027A953 /* SmurfView.m */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
 		E80DBDF91984AC0100AE5FE3 /* base64 */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,6 +758,7 @@
 		E8AEA732195842DB00F84598 /* ShangShang */ = {
 			isa = PBXGroup;
 			children = (
+				CCC6A9F11B0B6DC80027A953 /* ui */,
 				E8C337A61A1346C40012C9FE /* ExpansionTableViewByZQ */,
 				E8F685181974D19D00C83E8B /* images */,
 				E8BD7EDB1973BF8400A663E1 /* core */,
@@ -981,6 +998,7 @@
 		E8D0EAA11995C8EC0079CADF /* ShangShang Tests */ = {
 			isa = PBXGroup;
 			children = (
+				CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */,
 				E8D0EAA71995C8EC0079CADF /* ShangShang_Tests.m */,
 				E8D0EAA21995C8EC0079CADF /* Supporting Files */,
 			);
@@ -1019,8 +1037,6 @@
 				E8AF3B90197EB1D4007634A1 /* UpdateUserInfoViewController.m */,
 				E8F6853919751EED00C83E8B /* MyTitleBar.h */,
 				E8F6853A19751EED00C83E8B /* MyTitleBar.m */,
-				E8BD7EDF1973C86200A663E1 /* LoginViewController.h */,
-				E8BD7EE01973C86200A663E1 /* LoginViewController.m */,
 				E8F683F71974117200C83E8B /* HttpUtil.h */,
 				E8F683F81974117200C83E8B /* HttpUtil.m */,
 				E8BFF9F319F66FC600B5FD87 /* ServerIP.h */,
@@ -1507,6 +1523,7 @@
 			files = (
 				E8C337D21A1346C40012C9FE /* UIView+screenshot.m in Sources */,
 				E8D1A5A21A381BF8002DE984 /* DBManager.m in Sources */,
+				CCC6A9FD1B0E25D00027A953 /* SmurfView.m in Sources */,
 				E8F683F6197410F700C83E8B /* Reachability.m in Sources */,
 				E8F5E315196325600017F7E0 /* SBJSON.m in Sources */,
 				E83AD39A1988198200042893 /* BuyViewController.m in Sources */,
@@ -1640,6 +1657,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC6A9FF1B0E281F0027A953 /* BasicUsage.m in Sources */,
 				E8D0EAA81995C8EC0079CADF /* ShangShang_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1834,7 +1852,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShangShang.app/ShangShang";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jingwen Wang (7Z3M232UG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1861,7 +1879,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShangShang.app/ShangShang";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jingwen Wang (7Z3M232UG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -130,7 +130,7 @@ static SSUser *instance = nil;
     }
     return output;
 }
-
+/*
 +(BOOL) initWith:(NSString *)userName andPassword:(NSString *)password{
     NSDictionary *user=[CommonUtil iosapi_userinfo:userName Password:password];
     
@@ -158,5 +158,5 @@ static SSUser *instance = nil;
         return TRUE;
     }
     return true;
-}
+}*/
 @end
