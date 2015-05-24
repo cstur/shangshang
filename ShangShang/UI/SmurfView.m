@@ -8,6 +8,7 @@
 
 #import "SmurfView.h"
 
+
 @interface SmurfView ()
 
 @end
@@ -23,7 +24,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.httpUtil=[[HttpUtil alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

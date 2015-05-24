@@ -18,13 +18,14 @@
 		36181D201A14AED5009A88B8 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36181D171A14AED5009A88B8 /* AFURLSessionManager.m */; };
 		CCC6A9FD1B0E25D00027A953 /* SmurfView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FC1B0E25D00027A953 /* SmurfView.m */; };
 		CCC6A9FF1B0E281F0027A953 /* BasicUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */; };
+		CCFC8C601B10DB0E00ABCAED /* SmurfTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */; };
 		E80DBDF51983F52C00AE5FE3 /* AddDetailsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */; };
 		E80DBDF81984951500AE5FE3 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF71984951500AE5FE3 /* ImageUtil.m */; };
 		E80DBDFC1984AC0E00AE5FE3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDFB1984AC0E00AE5FE3 /* NSData+Base64.m */; };
 		E80DBDFF1984E11200AE5FE3 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDFE1984E11200AE5FE3 /* CommonUtil.m */; };
 		E80DBE031984E1CF00AE5FE3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBE021984E1CF00AE5FE3 /* MBProgressHUD.m */; };
 		E820A14B1A1353E00019D342 /* CellPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = E820A14A1A1353E00019D342 /* CellPicture.m */; };
-		E83AD38D1987CCD000042893 /* TeacherMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD38C1987CCD000042893 /* TeacherMainViewController.m */; };
+		E83AD38D1987CCD000042893 /* TeacherIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD38C1987CCD000042893 /* TeacherIndex.m */; };
 		E83AD3901987EED100042893 /* icon_bug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E83AD38E1987EED100042893 /* icon_bug.jpg */; };
 		E83AD3911987EED100042893 /* icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = E83AD38F1987EED100042893 /* icon_video.png */; };
 		E83AD39419880FEC00042893 /* SmurfClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD39319880FEC00042893 /* SmurfClass.m */; };
@@ -258,6 +259,8 @@
 		CCC6A9FB1B0E25D00027A953 /* SmurfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmurfView.h; path = UI/SmurfView.h; sourceTree = "<group>"; };
 		CCC6A9FC1B0E25D00027A953 /* SmurfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmurfView.m; path = UI/SmurfView.m; sourceTree = "<group>"; };
 		CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicUsage.m; sourceTree = "<group>"; };
+		CCFC8C5E1B10DB0E00ABCAED /* SmurfTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmurfTableView.h; path = UI/SmurfTableView.h; sourceTree = "<group>"; };
+		CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmurfTableView.m; path = UI/SmurfTableView.m; sourceTree = "<group>"; };
 		E80DBDF31983F52C00AE5FE3 /* AddDetailsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDetailsInfoViewController.h; sourceTree = "<group>"; };
 		E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDetailsInfoViewController.m; sourceTree = "<group>"; };
 		E80DBDF61984951500AE5FE3 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
@@ -270,8 +273,8 @@
 		E80DBE021984E1CF00AE5FE3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = HUDProgress/MBProgressHUD.m; sourceTree = "<group>"; };
 		E820A1491A1353E00019D342 /* CellPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellPicture.h; path = tablecell/CellPicture.h; sourceTree = "<group>"; };
 		E820A14A1A1353E00019D342 /* CellPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellPicture.m; path = tablecell/CellPicture.m; sourceTree = "<group>"; };
-		E83AD38B1987CCD000042893 /* TeacherMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherMainViewController.h; sourceTree = "<group>"; };
-		E83AD38C1987CCD000042893 /* TeacherMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherMainViewController.m; sourceTree = "<group>"; };
+		E83AD38B1987CCD000042893 /* TeacherIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherIndex.h; sourceTree = "<group>"; };
+		E83AD38C1987CCD000042893 /* TeacherIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherIndex.m; sourceTree = "<group>"; };
 		E83AD38E1987EED100042893 /* icon_bug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = icon_bug.jpg; path = images/icon_bug.jpg; sourceTree = "<group>"; };
 		E83AD38F1987EED100042893 /* icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_video.png; path = images/icon_video.png; sourceTree = "<group>"; };
 		E83AD39219880FEC00042893 /* SmurfClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmurfClass.h; sourceTree = "<group>"; };
@@ -688,10 +691,18 @@
 		CCC6A9F11B0B6DC80027A953 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				E8C9ED421983B42800CD7CF4 /* QuestionViewController.h */,
+				E8C9ED431983B42800CD7CF4 /* QuestionViewController.m */,
+				E8C9ED2E19838DF200CD7CF4 /* RegisterViewController.h */,
+				E8C9ED2F19838DF200CD7CF4 /* RegisterViewController.m */,
+				E83AD38B1987CCD000042893 /* TeacherIndex.h */,
+				E83AD38C1987CCD000042893 /* TeacherIndex.m */,
 				E8BD7EDF1973C86200A663E1 /* LoginViewController.h */,
 				E8BD7EE01973C86200A663E1 /* LoginViewController.m */,
 				CCC6A9FB1B0E25D00027A953 /* SmurfView.h */,
 				CCC6A9FC1B0E25D00027A953 /* SmurfView.m */,
+				CCFC8C5E1B10DB0E00ABCAED /* SmurfTableView.h */,
+				CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -1029,10 +1040,6 @@
 				E80DBDFE1984E11200AE5FE3 /* CommonUtil.m */,
 				E80DBDF31983F52C00AE5FE3 /* AddDetailsInfoViewController.h */,
 				E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */,
-				E8C9ED421983B42800CD7CF4 /* QuestionViewController.h */,
-				E8C9ED431983B42800CD7CF4 /* QuestionViewController.m */,
-				E8C9ED2E19838DF200CD7CF4 /* RegisterViewController.h */,
-				E8C9ED2F19838DF200CD7CF4 /* RegisterViewController.m */,
 				E8AF3B8F197EB1D4007634A1 /* UpdateUserInfoViewController.h */,
 				E8AF3B90197EB1D4007634A1 /* UpdateUserInfoViewController.m */,
 				E8F6853919751EED00C83E8B /* MyTitleBar.h */,
@@ -1135,8 +1142,6 @@
 				E83AD39C1988198E00042893 /* VideoViewController.m */,
 				E83AD3981988198200042893 /* BuyViewController.h */,
 				E83AD3991988198200042893 /* BuyViewController.m */,
-				E83AD38B1987CCD000042893 /* TeacherMainViewController.h */,
-				E83AD38C1987CCD000042893 /* TeacherMainViewController.m */,
 				E8F4BA19198E9BD800F7D79F /* TeacherClassManagementViewController.h */,
 				E8F4BA1A198E9BD800F7D79F /* TeacherClassManagementViewController.m */,
 				E879861D199774F3006AED11 /* TeacherClassMainViewController.h */,
@@ -1564,6 +1569,7 @@
 				E8DB86B91A3EDB3C005A11FC /* SmurfUser.m in Sources */,
 				E8F5E318196325600017F7E0 /* SBJsonWriter.m in Sources */,
 				E8EB91511998F97F0049B3CD /* CreateTopicViewController.m in Sources */,
+				CCFC8C601B10DB0E00ABCAED /* SmurfTableView.m in Sources */,
 				E83AD39419880FEC00042893 /* SmurfClass.m in Sources */,
 				E83AD3971988197200042893 /* PendingClassViewController.m in Sources */,
 				E8DD49BD19D7E63200F08E4E /* SerachGroupTableViewController.m in Sources */,
@@ -1608,7 +1614,7 @@
 				E8A2B3C01A03366800A7F421 /* AboutWKT.m in Sources */,
 				E8C9ED3019838DF200CD7CF4 /* RegisterViewController.m in Sources */,
 				E8B9321B198E343A007FF19F /* FPTouchView.m in Sources */,
-				E83AD38D1987CCD000042893 /* TeacherMainViewController.m in Sources */,
+				E83AD38D1987CCD000042893 /* TeacherIndex.m in Sources */,
 				E80DBE031984E1CF00AE5FE3 /* MBProgressHUD.m in Sources */,
 				E8C337D11A1346C40012C9FE /* UIFolderTableView.m in Sources */,
 				E8777BF91A50458D0019E0D7 /* SmurfFramework.m in Sources */,

@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
-@interface TeacherMainViewController : UITableViewController
-- (IBAction)btnBack:(id)sender;
+#import "SmurfTableView.h"
+@interface TeacherIndex : SmurfTableView
+
 @property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (retain, nonatomic) IBOutlet UILabel *labelUserName;
 @property (retain, nonatomic) IBOutlet UILabel *labelNickName;
-- (void)openLoginDialog;
--(void)setUserInfo:(SSUser *)userInfo;
+@property (nonatomic, retain) UIImage *headphoto;
 
-@property(nonatomic, retain) UIImage *headphoto;
--(void)getPhoto;
--(void)setPhoto;
+- (IBAction)btnBack:(id)sender;
+- (void)openLoginDialog;
 @end

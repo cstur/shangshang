@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NIDropDown.h"
 #import "SSUser.h"
+#import "SmurfView.h"
+
 static NSString *const cquestion1 = @"你父亲的出生地？";
 static NSString *const cquestion2 = @"你最爱的颜色？";
 static NSString *const cquestion3 = @"你就读的初中校名？";
 
-@interface QuestionViewController : UIViewController <NIDropDownDelegate,UITextFieldDelegate>{
+@interface QuestionViewController : SmurfView <NIDropDownDelegate>{
     NIDropDown *dropDown;
     BOOL keyboardVisible;
 }

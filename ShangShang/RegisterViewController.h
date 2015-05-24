@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSUser.h"
 #import "HttpUtil.h"
-@interface RegisterViewController : UIViewController<UITextFieldDelegate>
+#import "SmurfView.h"
+#import "SSUser.h"
+@interface RegisterViewController : SmurfView
 @property (retain, nonatomic) IBOutlet UITextField *textUserName;
 @property (retain, nonatomic) IBOutlet UITextField *textPassword;
 @property (retain, nonatomic) IBOutlet UITextField *textConfirmPassword;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segRole;
-@property (nonatomic,assign)SSUser *user;
-- (IBAction)btnRegister:(id)sender;
+@property (nonatomic, assign) SSUser *user;
 
 @end

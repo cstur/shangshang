@@ -30,6 +30,10 @@ extern NSString *SEARCHFROM;
 extern int limitClass;
 extern int limitVote;
 extern int limitTopic;
+extern NSString *SMURF_KEY_USERNAME;
+extern NSString *SMURF_KEY_PASSWORD;
+extern NSString *SMURF_KEY_USER;
+extern NSString *SMURF_KEY_TITLE;
 
 @interface SPostData: NSObject
 
@@ -42,7 +46,7 @@ extern int limitTopic;
 @end
 
 @interface CommonUtil : NSObject
-+(void)clearUserNameandPassword;
+//+(void)clearUserNameandPassword;
 +(NSDictionary*)getConfig;
 +(void)write:(NSMutableArray*)array toFilePath:(NSString*)path;
 +(void)UpdateConfig:(NSDictionary *)newConfig;
@@ -113,6 +117,7 @@ extern int limitTopic;
 +(UIViewController*)getView:(NSString*)stringIdentifier;
 + (NSString*)doUpload:(SPostData*)data withProgressInView:(UIViewController*) view;
 + (NSDate*)dateFromMillis:(long long)millis;
++(NSDictionary*)remvoeNullValue:(NSDictionary*)input;
 /*Servlet API*/
 +(void)restapi_RegisterDevice:(NSString*)token;
 @end

@@ -18,14 +18,6 @@
 
 @implementation QuestionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -34,10 +26,9 @@
     [self setButton:self.button2];
     [self setButton:self.button3];
     
-    self.answer1.delegate=self;
-    self.answer2.delegate=self;
-    self.answer3.delegate=self;
-    // Do any additional setup after loading the view.
+    [self associateTextFiedDelegate:self.answer1];
+    [self associateTextFiedDelegate:self.answer2];
+    [self associateTextFiedDelegate:self.answer3];
 }
 
 -(void)setButton:(UIButton *)button{
@@ -45,23 +36,6 @@
     button.layer.borderColor = [[UIColor blackColor] CGColor];
     button.layer.cornerRadius = 5;
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)btnQuestion1:(id)sender {
     [self showDrop:sender];
@@ -108,13 +82,6 @@
     [super dealloc];
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"ShowAddUserInfo"]) {
-        //AddDetailsInfoViewController *addUserInfo=segue.destinationViewController;
-        //addUserInfo.user=self.user;
-    }
-}
-
 -(void) keyboardDidShow:(NSNotification*)notif{
     if(keyboardVisible)
         return;
@@ -137,8 +104,7 @@
     
     CGRect viewFrame=self.scrollView.frame;
     viewFrame.size.height+=(keyboardSize.height);
-    self.scrollView.frame=viewFrame;
-    
+    self.scrollView.frame=viewFrame;    
     
     if(!keyboardVisible)
         return;
@@ -147,7 +113,6 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    HttpUtil *httpUtil=[[HttpUtil alloc] init];
     
     NSString* url = @"SmurfWeb/rest/user/register";
     self.user.questionid1=@"0";
@@ -162,7 +127,7 @@
     self.user.questionindex3=[self mapQuestion:self.button3.titleLabel.text];
     self.user.answer3=self.answer3.text;
     
-    NSString* result= [httpUtil SendPostRequest:url withBody:self.user.dictionary_Register];
+    NSString* result= [self.httpUtil SendPostRequest:url withBody:self.user.dictionary_Register];
     if ([result isEqualToString:@"-1"]) {
         //register failed
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"注册失败" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -208,7 +173,6 @@
 }
 
 -(void)rel{
-    //    [dropDown release];
     dropDown = nil;
 }
 @end

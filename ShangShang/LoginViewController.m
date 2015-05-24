@@ -9,8 +9,6 @@
 #import "LoginViewController.h"
 #import "HttpUtil.h"
 #import "CommonUtil.h"
-#import "StudentMainViewController.h"
-#import "TeacherMainViewController.h"
 
 @interface LoginViewController ()
 
@@ -19,14 +17,14 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
-	[[NSUserDefaults standardUserDefaults] setObject:[CommonUtil iosapi_logotext] forKey:@"smurf_title_shangshang"];
+	[[NSUserDefaults standardUserDefaults] setObject:[CommonUtil iosapi_logotext] forKey:SMURF_KEY_TITLE];
 	UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTap)];
 	[self.view addGestureRecognizer:gestureRecognizer];
 	[self setBackgroundImageView:@"上商APP-bj.png"];
 	[self associateTextFiedDelegate:self.textUserName];
 	[self associateTextFiedDelegate:self.textPassword];
-	self.textUserName.text = [self stringForKey:@"smurf_username"];
-	self.textPassword.text = [self stringForKey:@"smurf_password"];
+	self.textUserName.text = [self stringForKey:SMURF_KEY_USERNAME];
+	self.textPassword.text = [self stringForKey:SMURF_KEY_PASSWORD];
 	[super viewDidLoad];
 }
 
