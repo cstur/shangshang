@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "HttpUtil.h"
 #import "SmurfView.h"
-#import "SSUser.h"
+
 @interface RegisterViewController : SmurfView
 @property (retain, nonatomic) IBOutlet UITextField *textUserName;
 @property (retain, nonatomic) IBOutlet UITextField *textPassword;
 @property (retain, nonatomic) IBOutlet UITextField *textConfirmPassword;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segRole;
-@property (nonatomic, assign) SSUser *user;
+@property(assign) NSMutableDictionary *user;
 
 @end

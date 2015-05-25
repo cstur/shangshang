@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "NIDropDown.h"
-#import "SSUser.h"
 #import "SmurfView.h"
 
 static NSString *const cquestion1 = @"你父亲的出生地？";
 static NSString *const cquestion2 = @"你最爱的颜色？";
 static NSString *const cquestion3 = @"你就读的初中校名？";
 
-@interface QuestionViewController : SmurfView <NIDropDownDelegate>{
-    NIDropDown *dropDown;
-    BOOL keyboardVisible;
+@interface QuestionViewController : SmurfView <NIDropDownDelegate> {
+	NIDropDown *dropDown;
+	BOOL keyboardVisible;
 }
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) IBOutlet UINavigationBar *nav;
@@ -31,9 +30,9 @@ static NSString *const cquestion3 = @"你就读的初中校名？";
 @property (retain, nonatomic) IBOutlet UIButton *button1;
 @property (retain, nonatomic) IBOutlet UIButton *button2;
 @property (retain, nonatomic) IBOutlet UIButton *button3;
-@property (nonatomic,assign)SSUser *user;
--(void)showDrop:(id)sender;
--(NSString*)mapQuestion:(NSString*)question;
+@property (nonatomic, assign) NSMutableDictionary *user;
+- (void)showDrop:(id)sender;
+- (NSString *)mapQuestion:(NSString *)question;
 - (IBAction)btnBack:(id)sender;
--(void)rel;
+- (void)rel;
 @end

@@ -19,7 +19,7 @@
 		CCC6A9FD1B0E25D00027A953 /* SmurfView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FC1B0E25D00027A953 /* SmurfView.m */; };
 		CCC6A9FF1B0E281F0027A953 /* BasicUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */; };
 		CCFC8C601B10DB0E00ABCAED /* SmurfTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */; };
-		E80DBDF51983F52C00AE5FE3 /* AddDetailsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */; };
+		E80DBDF51983F52C00AE5FE3 /* AddDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF41983F52C00AE5FE3 /* AddDetailsView.m */; };
 		E80DBDF81984951500AE5FE3 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF71984951500AE5FE3 /* ImageUtil.m */; };
 		E80DBDFC1984AC0E00AE5FE3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDFB1984AC0E00AE5FE3 /* NSData+Base64.m */; };
 		E80DBDFF1984E11200AE5FE3 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDFE1984E11200AE5FE3 /* CommonUtil.m */; };
@@ -261,8 +261,8 @@
 		CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicUsage.m; sourceTree = "<group>"; };
 		CCFC8C5E1B10DB0E00ABCAED /* SmurfTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmurfTableView.h; path = UI/SmurfTableView.h; sourceTree = "<group>"; };
 		CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmurfTableView.m; path = UI/SmurfTableView.m; sourceTree = "<group>"; };
-		E80DBDF31983F52C00AE5FE3 /* AddDetailsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDetailsInfoViewController.h; sourceTree = "<group>"; };
-		E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDetailsInfoViewController.m; sourceTree = "<group>"; };
+		E80DBDF31983F52C00AE5FE3 /* AddDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDetailsView.h; sourceTree = "<group>"; };
+		E80DBDF41983F52C00AE5FE3 /* AddDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDetailsView.m; sourceTree = "<group>"; };
 		E80DBDF61984951500AE5FE3 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
 		E80DBDF71984951500AE5FE3 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
 		E80DBDFA1984AC0E00AE5FE3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "base64/NSData+Base64.h"; sourceTree = "<group>"; };
@@ -691,6 +691,8 @@
 		CCC6A9F11B0B6DC80027A953 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				E80DBDF31983F52C00AE5FE3 /* AddDetailsView.h */,
+				E80DBDF41983F52C00AE5FE3 /* AddDetailsView.m */,
 				E8C9ED421983B42800CD7CF4 /* QuestionViewController.h */,
 				E8C9ED431983B42800CD7CF4 /* QuestionViewController.m */,
 				E8C9ED2E19838DF200CD7CF4 /* RegisterViewController.h */,
@@ -1038,8 +1040,6 @@
 				E80DBDF71984951500AE5FE3 /* ImageUtil.m */,
 				E80DBDFD1984E11200AE5FE3 /* CommonUtil.h */,
 				E80DBDFE1984E11200AE5FE3 /* CommonUtil.m */,
-				E80DBDF31983F52C00AE5FE3 /* AddDetailsInfoViewController.h */,
-				E80DBDF41983F52C00AE5FE3 /* AddDetailsInfoViewController.m */,
 				E8AF3B8F197EB1D4007634A1 /* UpdateUserInfoViewController.h */,
 				E8AF3B90197EB1D4007634A1 /* UpdateUserInfoViewController.m */,
 				E8F6853919751EED00C83E8B /* MyTitleBar.h */,
@@ -1598,7 +1598,7 @@
 				E8B93219198E343A007FF19F /* FPPopoverController.m in Sources */,
 				E8F4BA13198E97FA00F7D79F /* QRPolynomial.m in Sources */,
 				E8AEA73D195842DB00F84598 /* AppDelegate.m in Sources */,
-				E80DBDF51983F52C00AE5FE3 /* AddDetailsInfoViewController.m in Sources */,
+				E80DBDF51983F52C00AE5FE3 /* AddDetailsView.m in Sources */,
 				E8F4BA0F198E97FA00F7D79F /* QRBitBuffer.m in Sources */,
 				E8F683EE197410F700C83E8B /* ASIAuthenticationDialog.m in Sources */,
 				E8D1A5A51A398133002DE984 /* SmurfUI.m in Sources */,

@@ -7,23 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSUser.h"
 #import "CommonUtil.h"
-@interface AddDetailsInfoViewController : UIViewController<UINavigationControllerDelegate,UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate>{
-    UIImage *photo_;
-    NSString *result_;
+#import "SmurfView.h"
+
+@interface AddDetailsView : SmurfView <UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate> {
+	UIImage *photo_;
+	NSString *result_;
 }
 @property (retain, nonatomic) IBOutlet UINavigationBar *nav;
-- (IBAction)btnSkip:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextField *labelNickName;
 @property (retain, nonatomic) IBOutlet UITextField *labelEmail;
 @property (retain, nonatomic) IBOutlet UITextField *labelTel;
 @property (retain, nonatomic) IBOutlet UITextField *labelAddress;
 @property (nonatomic, retain) NSString *result;
-@property(nonatomic, retain) UIImage *selectedphoto;
-- (IBAction)btnUpdate:(id)sender;
--(void)doUpdate;
+@property (nonatomic, retain) UIImage *selectedphoto;
 @property (retain, nonatomic) IBOutlet UIImageView *headphoto;
+
+- (IBAction)btnSkip:(id)sender;
+- (IBAction)btnUpdate:(id)sender;
+- (void)doUpdate;
 - (IBAction)setPhoto:(id)sender;
--(void)ShowRoot;
+- (void)ShowRoot;
 @end

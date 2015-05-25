@@ -76,6 +76,9 @@
 			if (role == 1) {
 				[self presentViewWithIdentifier:@"navteacher"];
 			}
+
+			[[NSUserDefaults standardUserDefaults] setObject:self.textUserName.text forKey:SMURF_KEY_USERNAME];
+			[[NSUserDefaults standardUserDefaults] setObject:self.textPassword.text forKey:SMURF_KEY_PASSWORD];
 		}
 		@catch (NSException *ex)
 		{
@@ -92,11 +95,11 @@
 		[self showAlert:@"用户名或密码不能为空"];
 	}
 	else {
-        [CommonUtil showWaiting:self.navigationController whileExecutingBlock: ^{
-            [self loginTask];
-        } completionBlock: ^{
-            [self loginComplete];
-        }];
+		[CommonUtil showWaiting:self.navigationController whileExecutingBlock: ^{
+		    [self loginTask];
+		} completionBlock: ^{
+		    [self loginComplete];
+		}];
 	}
 }
 

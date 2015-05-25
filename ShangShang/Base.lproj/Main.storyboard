@@ -616,7 +616,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aCh-Xv-MSW" kind="modal" identifier="ShowSetQuestion" id="PZo-9d-bhO"/>
+                                    <segue destination="aCh-Xv-MSW" kind="modal" identifier="adddetails" id="PZo-9d-bhO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -633,10 +633,10 @@
             </objects>
             <point key="canvasLocation" x="1677" y="-1180"/>
         </scene>
-        <!--Add Details Info View Controller-->
+        <!--Add Details View-->
         <scene sceneID="sQF-Tc-dIr">
             <objects>
-                <viewController id="aCh-Xv-MSW" customClass="AddDetailsInfoViewController" sceneMemberID="viewController">
+                <viewController id="aCh-Xv-MSW" customClass="AddDetailsView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BgA-Wc-4Ud">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

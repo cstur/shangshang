@@ -24,7 +24,6 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    self.httpUtil=[[HttpUtil alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

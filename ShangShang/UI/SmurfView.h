@@ -13,7 +13,6 @@
 
 @property (retain, nonatomic) UITextField *currentTextField;
 @property (retain, nonatomic) NSDictionary *loginUser;
-@property (retain, nonatomic) HttpUtil *httpUtil;
 
 - (void)associateTextFiedDelegate:(UITextField *)textField;
 - (NSString *)stringForKey:(NSString *)key;

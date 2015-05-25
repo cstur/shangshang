@@ -40,9 +40,8 @@
 }
 
 - (void)updateConfig {
-	HttpUtil *httpUtil = [[HttpUtil alloc] init];
 	NSString *url = [NSString stringWithFormat:@"SmurfWeb/rest/ios/resource?userid=%@", [self.loginUser objectForKey:@"id"]];
-	[httpUtil GetAsynchronous:url withDelegate:self];
+	[[HttpUtil getInstance] GetAsynchronous:url withDelegate:self];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {

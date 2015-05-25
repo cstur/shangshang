@@ -13,25 +13,24 @@
 @end
 
 @implementation RegisterViewController
-
+@synthesize user = _user;
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    self.user=[[NSMutableDictionary alloc] init];
+
 	[self associateTextFiedDelegate:self.textUserName];
 	[self associateTextFiedDelegate:self.textPassword];
 	[self associateTextFiedDelegate:self.textConfirmPassword];
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-	self.user = [[SSUser alloc] init];
 	if (self.textUserName.text.length == 0 || self.textPassword.text.length == 0 || self.textConfirmPassword.text.length == 0) {
 		[self showAlert:@"用户名和密码不能为空"];
 		return NO;
 	}
 
-	HttpUtil *httpUtil = [[HttpUtil alloc] init];
-
 	NSString *url = [NSString stringWithFormat:@"SmurfWeb/rest/user/verifyusername?username=%@", self.textUserName.text];
-	NSData *response = [httpUtil SendGetRequest:url];
+	NSData *response = [[HttpUtil getInstance] SendGetRequest:url];
 	NSString *newStr = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	int usercount = [newStr intValue];
 	if (usercount > 0) {
@@ -42,26 +41,26 @@
 	if (![self.textPassword.text isEqualToString:self.textConfirmPassword.text]) {
 		[self showAlert:@"两次输入密码不一致"];
 		return NO;
-	}
+    }
 
-	self.user.userName = self.textUserName.text;
-	self.user.password = self.textPassword.text;
-
-	NSString *role = [self.segRole titleForSegmentAtIndex:self.segRole.selectedSegmentIndex];
-	if ([role isEqualToString:@"学生"]) {
-		self.user.role = @"2";
-	}
-	else {
-		self.user.role = @"1";
-	}
-	self.user.sex = @"true";
-	self.user.vip = @"false";
 	return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([segue.identifier isEqualToString:@"ShowSetQuestion"]) {
 		QuestionViewController *setQuestion = segue.destinationViewController;
+        [self.user setObject:self.textUserName.text forKey:@"username"];
+        [self.user setObject:self.textPassword.text forKey:@"password"];
+        
+        NSString *role = [self.segRole titleForSegmentAtIndex:self.segRole.selectedSegmentIndex];
+        if ([role isEqualToString:@"学生"]) {
+            [self.user setObject:@"2" forKey:@"role"];
+        }
+        else {
+            [self.user setObject:@"1" forKey:@"role"];
+        }
+        [self.user setObject:@"true" forKey:@"sex"];
+        [self.user setObject:@"false" forKey:@"vip"];
 		setQuestion.user = self.user;
 	}
 }
