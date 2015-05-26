@@ -6,29 +6,21 @@
 //  Copyright (c) 2014年 aopai.ios. All rights reserved.
 //
 
-#import "TeacherClassMainViewController.h"
+#import "ClassIndex.h"
 #import "StudentVerifyTableViewController.h"
 #import "VoteManagementViewController.h"
 #import "TopicManagementViewController.h"
 #import "StudentListTableViewController.h"
 
-@interface TeacherClassMainViewController ()
+@interface ClassIndex ()
 
 @end
 
-@implementation TeacherClassMainViewController
+@implementation ClassIndex
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.navigationItem.title = TITLE_SHANGSHANG;
+    self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_TITLE];
 }
 
 - (void)viewDidLoad
@@ -37,7 +29,7 @@
     
     self.labelClassName.text=[NSString stringWithFormat:@"课程名：%@",self.sClass.className];
     self.labelCapacity.text=[NSString stringWithFormat:@"课程容量：%@",self.sClass.capacity];
-    self.textViewDescription.text=[NSString stringWithFormat:@"%@",self.sClass.classDescription];
+    self.textViewDescription.text=[NSString stringWithFormat:@"%@",[self.sClass objectForKey:@""]];
     UIImage* qrimage = [QREncoder encode:[NSString stringWithFormat:@"{\"classid\":\"%@\",\"content\":\"\"}",self.sClass.classId]];
     self.qrCode.image = qrimage;
     

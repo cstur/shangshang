@@ -11,7 +11,8 @@
 #import "FPPopoverKeyboardResponsiveController.h"
 #import "TeacherMenuTableTableViewController.h"
 #import "CommonUtil.h"
-@interface TeacherClassMainViewController : UITableViewController<FPPopoverControllerDelegate>
+#import "SmurfTableView.h"
+@interface ClassIndex : SmurfTableView<FPPopoverControllerDelegate>
 {
     FPPopoverKeyboardResponsiveController *popover;
     CGFloat _keyboardHeight;
@@ -20,7 +21,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *labelClassName;
 @property (retain, nonatomic) IBOutlet UILabel *labelCapacity;
 @property (retain, nonatomic) IBOutlet UITextView *textViewDescription;
-@property (nonatomic,assign)SmurfClass *sClass;
+@property (nonatomic,assign)NSMutableDictionary *sClass;
 -(void)menuClicked:(UIButton*)menuButton;
 -(void)popover:(id)sender;
 -(void)selectedTableRow:(NSUInteger)rowNum;

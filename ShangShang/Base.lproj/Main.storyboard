@@ -1569,10 +1569,10 @@
             </objects>
             <point key="canvasLocation" x="483" y="285"/>
         </scene>
-        <!--Teacher Class Management View Controller-->
+        <!--Class Management View-->
         <scene sceneID="MIC-8d-uBA">
             <objects>
-                <viewController id="lmB-K2-gvH" customClass="TeacherClassManagementViewController" sceneMemberID="viewController">
+                <viewController id="lmB-K2-gvH" customClass="ClassManagementView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fmK-cC-sLC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2709,10 +2709,10 @@
             </objects>
             <point key="canvasLocation" x="1227" y="3287"/>
         </scene>
-        <!--Teacher Class Main View Controller-->
+        <!--Class Index-->
         <scene sceneID="F7G-ct-Kf8">
             <objects>
-                <tableViewController storyboardIdentifier="teacherclassview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tQg-8D-nge" customClass="TeacherClassMainViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="teacherclassview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tQg-8D-nge" customClass="ClassIndex" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Mi4-uO-hWq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3093,8 +3093,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zta-Jw-ggv"/>
-        <segue reference="4xN-cs-08h"/>
+        <segue reference="1XL-ZK-m4o"/>
+        <segue reference="lsl-aF-MEP"/>
         <segue reference="q4g-wX-LY9"/>
         <segue reference="fgr-WZ-zgA"/>
     </inferredMetricsTieBreakers>

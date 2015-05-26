@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TeacherClassMainViewController.h"
-@interface TeacherClassManagementViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+#import "ClassManagementView.h"
+#import "SmurfView.h"
+
+@interface ClassManagementView : SmurfView<UITableViewDelegate,UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *listClass;
 -(void)createClassCompletion:(NSNotification*)notification;

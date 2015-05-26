@@ -36,7 +36,7 @@
 		E8777BF91A50458D0019E0D7 /* SmurfFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = E8777BF81A50458D0019E0D7 /* SmurfFramework.m */; };
 		E8777BFC1A5045BC0019E0D7 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = E8777BFB1A5045BC0019E0D7 /* ConfigData.m */; };
 		E879861C19976E26006AED11 /* ClassMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861B19976E26006AED11 /* ClassMenuViewController.m */; };
-		E879861F199774F3006AED11 /* TeacherClassMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861E199774F3006AED11 /* TeacherClassMainViewController.m */; };
+		E879861F199774F3006AED11 /* ClassIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861E199774F3006AED11 /* ClassIndex.m */; };
 		E879862219977B2B006AED11 /* TeacherMenuTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */; };
 		E879862519979AB5006AED11 /* CreateClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862419979AB5006AED11 /* CreateClassViewController.m */; };
 		E87986281997B564006AED11 /* StudentVerifyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87986271997B564006AED11 /* StudentVerifyTableViewController.m */; };
@@ -175,7 +175,7 @@
 		E8F4BA12198E97FA00F7D79F /* QRMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F4BA0A198E97FA00F7D79F /* QRMatrix.m */; };
 		E8F4BA13198E97FA00F7D79F /* QRPolynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F4BA0C198E97FA00F7D79F /* QRPolynomial.m */; };
 		E8F4BA14198E97FA00F7D79F /* QRRSBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F4BA0E198E97FA00F7D79F /* QRRSBlock.m */; };
-		E8F4BA1B198E9BD800F7D79F /* TeacherClassManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F4BA1A198E9BD800F7D79F /* TeacherClassManagementViewController.m */; };
+		E8F4BA1B198E9BD800F7D79F /* ClassManagementView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F4BA1A198E9BD800F7D79F /* ClassManagementView.m */; };
 		E8F5E301196324210017F7E0 /* Alixpay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E2FF196324210017F7E0 /* Alixpay.bundle */; };
 		E8F5E302196324210017F7E0 /* AlixPaylib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F5E300196324210017F7E0 /* AlixPaylib.a */; };
 		E8F5E313196325600017F7E0 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F5E308196325600017F7E0 /* NSObject+SBJSON.m */; };
@@ -292,8 +292,8 @@
 		E8777BFB1A5045BC0019E0D7 /* ConfigData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigData.m; sourceTree = "<group>"; };
 		E879861A19976E26006AED11 /* ClassMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassMenuViewController.h; sourceTree = "<group>"; };
 		E879861B19976E26006AED11 /* ClassMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassMenuViewController.m; sourceTree = "<group>"; };
-		E879861D199774F3006AED11 /* TeacherClassMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherClassMainViewController.h; sourceTree = "<group>"; };
-		E879861E199774F3006AED11 /* TeacherClassMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherClassMainViewController.m; sourceTree = "<group>"; };
+		E879861D199774F3006AED11 /* ClassIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassIndex.h; sourceTree = "<group>"; };
+		E879861E199774F3006AED11 /* ClassIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassIndex.m; sourceTree = "<group>"; };
 		E879862019977B2B006AED11 /* TeacherMenuTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherMenuTableTableViewController.h; sourceTree = "<group>"; };
 		E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherMenuTableTableViewController.m; sourceTree = "<group>"; };
 		E879862319979AB5006AED11 /* CreateClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateClassViewController.h; sourceTree = "<group>"; };
@@ -518,8 +518,8 @@
 		E8F4BA0C198E97FA00F7D79F /* QRPolynomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRPolynomial.m; path = qrcode/QRPolynomial.m; sourceTree = "<group>"; };
 		E8F4BA0D198E97FA00F7D79F /* QRRSBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRRSBlock.h; path = qrcode/QRRSBlock.h; sourceTree = "<group>"; };
 		E8F4BA0E198E97FA00F7D79F /* QRRSBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRRSBlock.m; path = qrcode/QRRSBlock.m; sourceTree = "<group>"; };
-		E8F4BA19198E9BD800F7D79F /* TeacherClassManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherClassManagementViewController.h; sourceTree = "<group>"; };
-		E8F4BA1A198E9BD800F7D79F /* TeacherClassManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherClassManagementViewController.m; sourceTree = "<group>"; };
+		E8F4BA19198E9BD800F7D79F /* ClassManagementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassManagementView.h; sourceTree = "<group>"; };
+		E8F4BA1A198E9BD800F7D79F /* ClassManagementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassManagementView.m; sourceTree = "<group>"; };
 		E8F5E2FE196324210017F7E0 /* AlixLibService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlixLibService.h; path = alipay/AlixLibService.h; sourceTree = "<group>"; };
 		E8F5E2FF196324210017F7E0 /* Alixpay.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Alixpay.bundle; path = alipay/Alixpay.bundle; sourceTree = "<group>"; };
 		E8F5E300196324210017F7E0 /* AlixPaylib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = AlixPaylib.a; path = alipay/AlixPaylib.a; sourceTree = "<group>"; };
@@ -691,6 +691,8 @@
 		CCC6A9F11B0B6DC80027A953 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				E8F4BA19198E9BD800F7D79F /* ClassManagementView.h */,
+				E8F4BA1A198E9BD800F7D79F /* ClassManagementView.m */,
 				E8BD7EDC1973BFD700A663E1 /* StudentIndex.h */,
 				E8BD7EDD1973BFD700A663E1 /* StudentIndex.m */,
 				E80DBDF31983F52C00AE5FE3 /* AddDetailsView.h */,
@@ -707,6 +709,8 @@
 				CCC6A9FC1B0E25D00027A953 /* SmurfView.m */,
 				CCFC8C5E1B10DB0E00ABCAED /* SmurfTableView.h */,
 				CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */,
+				E879861D199774F3006AED11 /* ClassIndex.h */,
+				E879861E199774F3006AED11 /* ClassIndex.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -1142,10 +1146,6 @@
 				E83AD39C1988198E00042893 /* VideoViewController.m */,
 				E83AD3981988198200042893 /* BuyViewController.h */,
 				E83AD3991988198200042893 /* BuyViewController.m */,
-				E8F4BA19198E9BD800F7D79F /* TeacherClassManagementViewController.h */,
-				E8F4BA1A198E9BD800F7D79F /* TeacherClassManagementViewController.m */,
-				E879861D199774F3006AED11 /* TeacherClassMainViewController.h */,
-				E879861E199774F3006AED11 /* TeacherClassMainViewController.m */,
 				E879862019977B2B006AED11 /* TeacherMenuTableTableViewController.h */,
 				E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */,
 				E879862319979AB5006AED11 /* CreateClassViewController.h */,
@@ -1622,10 +1622,10 @@
 				E8AF3BA2197FFCDB007634A1 /* ClassManagementViewController.m in Sources */,
 				E8C337D01A1346C40012C9FE /* FolderCoverView.m in Sources */,
 				E8B187231A026FF00015E48B /* XYPieChart.m in Sources */,
-				E8F4BA1B198E9BD800F7D79F /* TeacherClassManagementViewController.m in Sources */,
+				E8F4BA1B198E9BD800F7D79F /* ClassManagementView.m in Sources */,
 				E8C56D841A01F05700DFEB21 /* PieElement.m in Sources */,
 				E8D2EBF719EE5B9300F0A3B4 /* VoteDetailTableViewController.m in Sources */,
-				E879861F199774F3006AED11 /* TeacherClassMainViewController.m in Sources */,
+				E879861F199774F3006AED11 /* ClassIndex.m in Sources */,
 				E80DBDFC1984AC0E00AE5FE3 /* NSData+Base64.m in Sources */,
 				E8DD49B119D7D6FA00F08E4E /* StudentTopicTableViewController.m in Sources */,
 				E8CFCF0819FBDEEF00BEF827 /* STBubbleTableViewCell.m in Sources */,
