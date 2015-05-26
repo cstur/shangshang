@@ -9,7 +9,6 @@
 #import "ApplyClassViewController.h"
 #import "ClassManagementViewController.h"
 #import "PendingClassViewController.h"
-#import "StudentMainViewController.h"
 
 @interface ApplyClassViewController ()
 

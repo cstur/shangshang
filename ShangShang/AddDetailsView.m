@@ -7,7 +7,6 @@
 //
 
 #import "AddDetailsView.h"
-#import "StudentMainViewController.h"
 #import "CommonUtil.h"
 @interface AddDetailsView ()
 
@@ -27,26 +26,27 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
-	self.labelNickName.delegate = self;
-	self.labelAddress.delegate = self;
-	self.labelEmail.delegate = self;
-	self.labelTel.delegate = self;
+	[self associateTextFiedDelegate:self.labelNickName];
+	[self associateTextFiedDelegate:self.labelAddress];
+	[self associateTextFiedDelegate:self.labelEmail];
+	[self associateTextFiedDelegate:self.labelTel];
 
-	self.labelNickName.text = @"新用户";
+	self.labelNickName.text = [self.loginUser objectForKey:@"nickName"];
 }
 
 - (void)updateTask {
 	NSString *url = @"SmurfWeb/rest/user/updateuserinfo";
-	NSLog(@"%@", self.labelNickName.text);
-	NSMutableDictionary *newUser = [self.loginUser copy];
-	[newUser setObject:self.labelNickName.text forKey:@"nickName"];
-	[newUser setObject:self.labelAddress.text forKey:@"address"];
-	[newUser setObject:self.labelEmail.text forKey:@"email"];
-	[newUser setObject:self.labelTel.text forKey:@"telephone"];
-	[newUser setObject:[[ImageUtil alloc] encodeToBase64String:self.selectedphoto] forKey:@"picture"];
-	self.result = [[HttpUtil getInstance] SendPostRequest:url withBody:[newUser copy]];
+	[self.loginUser setObject:self.labelNickName.text forKey:@"nickName"];
+	[self.loginUser setObject:self.labelAddress.text forKey:@"address"];
+	[self.loginUser setObject:self.labelEmail.text forKey:@"email"];
+	[self.loginUser setObject:self.labelTel.text forKey:@"telephone"];
+    if (self.selectedphoto!=nil) {
+        [self.loginUser setObject:[[ImageUtil alloc] encodeToBase64String:self.selectedphoto] forKey:@"picture"];
+    }
+	self.result = [[HttpUtil getInstance] SendPostRequest:url withBody:self.loginUser];
 	if ([self.result isEqualToString:@"0"]) {
-		self.loginUser = [CommonUtil iosapi_userinfo:[[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_USERNAME]
+		self.loginUser = [CommonUtil iosapi_userinfo:
+		                  [[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_USERNAME]
 		                                    Password:[[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_PASSWORD]];
 		if (self.loginUser != nil) {
 			[[NSUserDefaults standardUserDefaults] setObject:self.loginUser forKey:@"smurf_user"];
@@ -136,11 +136,9 @@
 			case 0:
 				sourceType = UIImagePickerControllerSourceTypeCamera;
 				break;
-
 			case 1:
 				sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 				break;
-
 			case 2:
 				return;
 		}

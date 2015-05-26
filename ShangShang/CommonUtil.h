@@ -101,7 +101,7 @@ extern NSString *SMURF_KEY_TITLE;
 +(NSString*) iosapi_abouttext;
 +(NSString*) iosapi_voteImage:(NSString*)voteid;
 +(NSString*) getImageByUrl:(NSString*) url;
-+(NSDictionary*) iosapi_userinfo:(NSString*)username Password:(NSString*)password;
++(NSMutableDictionary*) iosapi_userinfo:(NSString*)username Password:(NSString*)password;
 +(NSArray*)getList:(NSString*)url;
 +(BOOL) post:(NSString*)url withBody:(NSDictionary*)body;
 

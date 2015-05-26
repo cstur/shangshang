@@ -752,12 +752,11 @@ NSString *SMURF_KEY_TITLE = @"smurf_title";
    score
    signature
  */
-+ (NSDictionary *)iosapi_userinfo:(NSString *)username Password:(NSString *)password {
++ (NSMutableDictionary *)iosapi_userinfo:(NSString *)username Password:(NSString *)password {
 	@try {
-		HttpUtil *httpUtil = [[HttpUtil alloc] init];
 		NSString *url = [NSString stringWithFormat:@"SmurfWeb/rest/ios/userinfo?username=%@&password=%@", username, password];
 		url = [url stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingUTF8)];
-		NSData *response = [httpUtil SendGetRequest:url];
+		NSData *response = [[HttpUtil getInstance] SendGetRequest:url];
 		if (response == nil) {
 			NSLog(@"response error");
 			return nil;
@@ -769,7 +768,7 @@ NSString *SMURF_KEY_TITLE = @"smurf_title";
 		NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
 		NSLog(@"%@", obj);
         obj=[self remvoeNullValue:obj];
-		return obj;
+		return [obj mutableCopy];
 	}
 	@catch (NSException *exception)
 	{

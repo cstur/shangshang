@@ -8,24 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
-#import "SSUser.h"
+#import "SmurfTableView.h"
 
-@interface StudentMainViewController :UITableViewController {
+@interface StudentIndex : SmurfTableView {
 }
-
+@property (retain, nonatomic) IBOutlet UILabel *labelNickName;
+@property (retain, nonatomic) IBOutlet UILabel *labelUserName;
+@property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
+@property (nonatomic, assign) BOOL flagJumpPendingClassView;
+@property (nonatomic, retain) UIImage *headphoto;
 
 - (void)openLoginDialog;
 - (IBAction)btnBack:(id)sender;
-
--(void)setUserInfo:(SSUser*)userInfo;
-@property (retain, nonatomic) IBOutlet UILabel *labelNickName;
-@property (retain, nonatomic) IBOutlet UILabel *labelUserName;
-
-@property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
-@property (nonatomic, assign) BOOL flagLogin;
-@property (nonatomic, assign) BOOL flagJumpPendingClassView;
-@property(nonatomic, retain) UIImage *headphoto;
--(void)getPhoto;
--(void)setPhoto;
--(void)jumpToPendClassView;
+- (void)jumpToPendClassView;
 @end

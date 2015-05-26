@@ -136,7 +136,7 @@
 		[[NSUserDefaults standardUserDefaults] setObject:[self.user objectForKey:@"password"] forKey:SMURF_KEY_PASSWORD];
 
 		self.loginUser = [CommonUtil iosapi_userinfo:[self.user objectForKey:@"username"] Password:[self.user objectForKey:@"password"]];
-
+        [self.loginUser setObject:@"newbee" forKey:@"nickName"];
 		return YES;
 	}
 	return NO;

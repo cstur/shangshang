@@ -12,7 +12,7 @@
 @interface SmurfView : UIViewController <UITextFieldDelegate>
 
 @property (retain, nonatomic) UITextField *currentTextField;
-@property (retain, nonatomic) NSDictionary *loginUser;
+@property (retain, nonatomic) NSMutableDictionary *loginUser;
 
 - (void)associateTextFiedDelegate:(UITextField *)textField;
 - (NSString *)stringForKey:(NSString *)key;

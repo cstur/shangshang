@@ -77,7 +77,7 @@
 		E8B93219198E343A007FF19F /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B93214198E343A007FF19F /* FPPopoverController.m */; };
 		E8B9321A198E343A007FF19F /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B93216198E343A007FF19F /* FPPopoverView.m */; };
 		E8B9321B198E343A007FF19F /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B93218198E343A007FF19F /* FPTouchView.m */; };
-		E8BD7EDE1973BFD700A663E1 /* StudentMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7EDD1973BFD700A663E1 /* StudentMainViewController.m */; };
+		E8BD7EDE1973BFD700A663E1 /* StudentIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7EDD1973BFD700A663E1 /* StudentIndex.m */; };
 		E8BD7EE11973C86200A663E1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7EE01973C86200A663E1 /* LoginViewController.m */; };
 		E8BFF9F519F66FC600B5FD87 /* ServerIP.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BFF9F419F66FC600B5FD87 /* ServerIP.m */; };
 		E8C2C9431A104F6A00E4DE89 /* Pictures.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C2C9421A104F6A00E4DE89 /* Pictures.m */; };
@@ -366,8 +366,8 @@
 		E8B93216198E343A007FF19F /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPPopoverView.m; path = fppopover/FPPopoverView.m; sourceTree = "<group>"; };
 		E8B93217198E343A007FF19F /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPTouchView.h; path = fppopover/FPTouchView.h; sourceTree = "<group>"; };
 		E8B93218198E343A007FF19F /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPTouchView.m; path = fppopover/FPTouchView.m; sourceTree = "<group>"; };
-		E8BD7EDC1973BFD700A663E1 /* StudentMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentMainViewController.h; sourceTree = "<group>"; };
-		E8BD7EDD1973BFD700A663E1 /* StudentMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentMainViewController.m; sourceTree = "<group>"; };
+		E8BD7EDC1973BFD700A663E1 /* StudentIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentIndex.h; sourceTree = "<group>"; };
+		E8BD7EDD1973BFD700A663E1 /* StudentIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentIndex.m; sourceTree = "<group>"; };
 		E8BD7EDF1973C86200A663E1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E8BD7EE01973C86200A663E1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E8BFF9F319F66FC600B5FD87 /* ServerIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerIP.h; sourceTree = "<group>"; };
@@ -691,6 +691,8 @@
 		CCC6A9F11B0B6DC80027A953 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				E8BD7EDC1973BFD700A663E1 /* StudentIndex.h */,
+				E8BD7EDD1973BFD700A663E1 /* StudentIndex.m */,
 				E80DBDF31983F52C00AE5FE3 /* AddDetailsView.h */,
 				E80DBDF41983F52C00AE5FE3 /* AddDetailsView.m */,
 				E8C9ED421983B42800CD7CF4 /* QuestionViewController.h */,
@@ -1077,8 +1079,6 @@
 				E8AF3BA4197FFEBA007634A1 /* SearchClassViewController.m */,
 				E8AF3BA0197FFCDB007634A1 /* ClassManagementViewController.h */,
 				E8AF3BA1197FFCDB007634A1 /* ClassManagementViewController.m */,
-				E8BD7EDC1973BFD700A663E1 /* StudentMainViewController.h */,
-				E8BD7EDD1973BFD700A663E1 /* StudentMainViewController.m */,
 				E879861A19976E26006AED11 /* ClassMenuViewController.h */,
 				E879861B19976E26006AED11 /* ClassMenuViewController.m */,
 				E8DD49A319D52C4400F08E4E /* StudentMenuTableTableViewController.h */,
@@ -1535,7 +1535,7 @@
 				E879862519979AB5006AED11 /* CreateClassViewController.m in Sources */,
 				E8DD49B419D7D8D100F08E4E /* StudentGroupMainTableViewController.m in Sources */,
 				E8DD49BA19D7E62600F08E4E /* ViewGroupTableViewController.m in Sources */,
-				E8BD7EDE1973BFD700A663E1 /* StudentMainViewController.m in Sources */,
+				E8BD7EDE1973BFD700A663E1 /* StudentIndex.m in Sources */,
 				E8DB86A51A3EB331005A11FC /* SmurfModel.xcdatamodeld in Sources */,
 				E8BD7EE11973C86200A663E1 /* LoginViewController.m in Sources */,
 				36181D181A14AED5009A88B8 /* AFHTTPRequestOperation.m in Sources */,
