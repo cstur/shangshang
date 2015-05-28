@@ -26,11 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.labelClassName.text=[NSString stringWithFormat:@"课程名：%@",self.sClass.className];
-    self.labelCapacity.text=[NSString stringWithFormat:@"课程容量：%@",self.sClass.capacity];
-    self.textViewDescription.text=[NSString stringWithFormat:@"%@",[self.sClass objectForKey:@""]];
-    UIImage* qrimage = [QREncoder encode:[NSString stringWithFormat:@"{\"classid\":\"%@\",\"content\":\"\"}",self.sClass.classId]];
+
+    self.labelClassName.text=[NSString stringWithFormat:@"课程名：%@",[self.sClass objectForKey:@"name"]];
+    self.labelCapacity.text=[NSString stringWithFormat:@"课程容量：%@",[self.sClass objectForKey:@"capacity"]];
+    self.textViewDescription.text=[NSString stringWithFormat:@"%@",[self.sClass objectForKey:@"description"]];
+    UIImage* qrimage = [QREncoder encode:[NSString stringWithFormat:@"{\"classid\":\"%@\",\"content\":\"\"}",[self.sClass objectForKey:@"id"]]];
     self.qrCode.image = qrimage;
     
     //KEYBOARD OBSERVERS
@@ -54,7 +54,6 @@
     [menuImageButon release];
 }
 
-
 -(void)keyboardWillShow:(NSNotification*)notification {
     NSDictionary *info = notification.userInfo;
     CGRect keyboardRect = [[info valueForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
@@ -76,7 +75,7 @@
 -(void)menuClicked:(UIButton*)menuButton{
     [self popover:menuButton];
 }
-
+/*
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -91,6 +90,7 @@
     //All orientations
     return UIInterfaceOrientationMaskAll;
 }
+ */
 - (void)presentedNewPopoverController:(FPPopoverController *)newPopoverController
           shouldDismissVisiblePopover:(FPPopoverController*)visiblePopoverController
 {
@@ -137,13 +137,13 @@
     // }
     
 }
-
+/*
 -(IBAction)goToTableView:(id)sender
 {
     //  FPDemoTableViewController *controller = [[FPDemoTableViewController alloc] initWithStyle:UITableViewStylePlain];
     [self.navigationController pushViewController:nil animated:YES];
 }
-
+*/
 -(void)selectedTableRow:(NSUInteger)rowNum
 {
     UIStoryboard *m=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -172,23 +172,6 @@
     }
     [popover dismissPopoverAnimated:YES];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (void)dealloc {
     [_qrCode release];

@@ -6,36 +6,22 @@
 //  Copyright (c) 2014年 aopai.ios. All rights reserved.
 //
 
-#import "CreateClassViewController.h"
+#import "CreateClassView.h"
 
-@interface CreateClassViewController ()
+@interface CreateClassView ()
 
 @end
 
-@implementation CreateClassViewController
+@implementation CreateClassView
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textClassName.delegate=self;
+    [self associateTextFiedDelegate:self.textClassName];
     self.textViewDescription.delegate=self;
     self.textViewDescription.text = @"请输入课程简介";
     self.textViewDescription.textColor = [UIColor lightGrayColor];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -56,11 +42,6 @@
     [textView resignFirstResponder];
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
-
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
@@ -68,17 +49,6 @@
     }
     return YES;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)dealloc {
     [_textClassName release];
@@ -88,8 +58,7 @@
 }
 - (IBAction)btnCreateClass:(id)sender {
     if (self.textClassName.text.length==0||self.textViewDescription.text.length==0) {
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"课程名和课程描述不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        [self showAlert:@"课程名和课程描述不能为空"];
         return;
     }
     
@@ -101,19 +70,18 @@
         verify=@"false";
     }
     
-    SSUser *u=[SSUser getInstance];
+    NSString* uid=[[[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_USER] objectForKey:@"id"];
     NSDictionary *body= [NSDictionary dictionaryWithObjectsAndKeys:
             self.textClassName.text,@"name",
             verify,@"verify",
             self.textViewDescription.text,@"description",
-            u.userid,@"userid",
+            uid,@"userid",
             nil];
     BOOL result=[CommonUtil restapi_CreateClass:body];
     if (result) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"创建失败" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        [self showAlert:@"创建失败"];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CreateClassCompletion" object:nil];

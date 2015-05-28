@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.listStudent= [CommonUtil restapi_StudentList:self.sClass.classId];
+     self.listStudent= [CommonUtil restapi_StudentList:[self.sClass objectForKey:@"id"]];
 }
 
 - (void)didReceiveMemoryWarning

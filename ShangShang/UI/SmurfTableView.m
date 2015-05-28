@@ -14,11 +14,29 @@
 
 @implementation SmurfTableView
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+    }
+    return self;
+}
+
 - (void)presentViewWithIdentifier:(NSString *)identifier {
     UIStoryboard *m = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *newV = (UINavigationController *)[m instantiateViewControllerWithIdentifier:identifier];
     [self presentViewController:newV animated:YES completion:nil];
 }
+
+- (void)associateTextFiedDelegate:(UITextField *)textField {
+    textField.delegate = self;
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [self.navigationController popViewControllerAnimated:YES];
+    return YES;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

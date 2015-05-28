@@ -49,7 +49,7 @@
     
     self.textGrade.text=[NSString stringWithFormat:@"%@",user.grade];
     self.textScore.text=[NSString stringWithFormat:@"%@",user.score];
-    self.headphoto.image=[CommonUtil getImage:user.userid];
+    self.headphoto.image=[CommonUtil achiveHeadPhoto:user.userid];
 
     self.labelMessage.text=@"";
 }

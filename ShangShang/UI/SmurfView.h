@@ -13,6 +13,7 @@
 
 @property (retain, nonatomic) UITextField *currentTextField;
 @property (retain, nonatomic) NSMutableDictionary *loginUser;
+@property (retain, nonatomic) NSMutableDictionary *sClass;
 
 - (void)associateTextFiedDelegate:(UITextField *)textField;
 - (NSString *)stringForKey:(NSString *)key;

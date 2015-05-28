@@ -14,14 +14,6 @@
 
 @implementation TopicManagementViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.title=@"议题管理";
@@ -36,25 +28,18 @@
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     
-    self.listTopic=[CommonUtil restapi_GetTopicList:self.sClass.classId];
+    self.listTopic=[CommonUtil restapi_GetTopicList:[self.sClass objectForKey:@"id"]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createTopicCompletion:) name:@"CreateTopicCompletion" object:nil];
 }
 
 -(void)refreshTable{
-    self.listTopic=[CommonUtil restapi_GetTopicList:self.sClass.classId];
+    self.listTopic=[CommonUtil restapi_GetTopicList:[self.sClass objectForKey:@"id"]];
     [self.tableView reloadData];
 }
 
 -(void)createTopicCompletion:(NSNotification*)notification{
     [self refreshTable];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.listTopic count];

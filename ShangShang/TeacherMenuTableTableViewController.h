@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TeacherClassMainViewController;
+@class ClassIndex;
 @interface TeacherMenuTableTableViewController : UITableViewController
-@property(nonatomic,assign) TeacherClassMainViewController *delegate;
+@property(nonatomic,assign) ClassIndex *delegate;
 @property (nonatomic, strong) NSArray *listMenu;
 @end

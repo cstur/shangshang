@@ -19,6 +19,7 @@ NSString *SMURF_KEY_USERNAME = @"smurf_username";
 NSString *SMURF_KEY_PASSWORD = @"smurf_password";
 NSString *SMURF_KEY_USER = @"smurf_user";
 NSString *SMURF_KEY_TITLE = @"smurf_title";
+NSString *SMURF_KEY_UID = @"smurf_user_id";
 @implementation SPostData
 @synthesize filePath;
 @synthesize data;
@@ -526,7 +527,7 @@ NSString *SMURF_KEY_TITLE = @"smurf_title";
 	}
 }
 
-+ (UIImage *)getImage:(NSString *)userid {
++ (UIImage *)achiveHeadPhoto:(NSString *)userid {
 	@try {
 		NSString *imgPath = [NSString stringWithFormat:@"/Documents/%@.png", userid];
 		NSString *path = [NSHomeDirectory() stringByAppendingString:imgPath];
@@ -768,6 +769,7 @@ NSString *SMURF_KEY_TITLE = @"smurf_title";
 		NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
 		NSLog(@"%@", obj);
         obj=[self remvoeNullValue:obj];
+        
 		return [obj mutableCopy];
 	}
 	@catch (NSException *exception)
@@ -935,7 +937,7 @@ NSString *SMURF_KEY_TITLE = @"smurf_title";
 + (NSString *)doUpload:(SPostData *)data withProgressInView:(UIViewController *)view {
 	__block NSString *attachid = @"";
 	NSString *postURL = [NSString stringWithFormat:@"http://%@/SmurfWeb/View/UploadServlet", [ServerIP getConfigIP]];
-	NSDictionary *parameters = @{ @"userid": [SSUser getInstance].userid, @"filetype":data.type, @"flag":data.flag, @"filename":data.fileName };
+	NSDictionary *parameters = @{ @"userid": [[[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_USER] objectForKey:@"id"], @"filetype":data.type, @"flag":data.flag, @"filename":data.fileName };
 	AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
 
 	NSMutableURLRequest *request =

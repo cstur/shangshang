@@ -88,7 +88,7 @@ extern NSString *SMURF_KEY_TITLE;
 
 /*Image Util*/
 +(void) saveImage:(UIImage*)image withPath:(NSString*)path;
-+(UIImage*) getImage:(NSString*)userid;
++(UIImage*) achiveHeadPhoto:(NSString*)userid;
 +(UIImage*) getMedia:(NSString*)mediaid;
 +(UIImage*) getAttach:(NSString*)voteid withFileName:(NSString*)fileName;
 

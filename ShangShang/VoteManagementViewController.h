@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
 #import "CellVote.h"
-@interface VoteManagementViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+#import "SmurfView.h"
+@interface VoteManagementViewController : SmurfView<UITableViewDelegate,UITableViewDataSource>
 - (IBAction)btnCreateVote:(id)sender;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *listVote;
-@property (nonatomic,assign)SmurfClass *sClass;
+
 @end

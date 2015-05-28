@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
 #import "StudentVerifyTableViewCell.h"
-@interface StudentVerifyTableViewController : UITableViewController
+#import "SmurfTableView.h"
+
+@interface StudentVerifyTableViewController : SmurfTableView
 @property (nonatomic, strong) NSArray *listPendingStudent;
-@property (nonatomic,assign)SmurfClass *sClass;
+
 @end

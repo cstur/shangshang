@@ -151,7 +151,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 -(void)createVoteTask{
     SSVote *vote=[SSVote alloc];
     vote.title=self.textTitle.text;
-    vote.classid=self.sClass.classId;
+    vote.classid=[self.sClass objectForKey:@"id"];
     
     NSMutableArray *optionTemp=[[NSMutableArray alloc] init];
     for (int i = 0; i < [self.listOption count]; i++) {

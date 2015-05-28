@@ -50,7 +50,8 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
 	if ([identifier isEqualToString:@"seguecreateclass"]) {
-		if (self.listClass.count >= limitClass) {
+        self.loginUser=[[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_USER];
+		if ([[self.loginUser objectForKey:@"cclass"] intValue]>= [[self.loginUser objectForKey:@"limitClass"] intValue]) {
 			[CommonUtil ShowAlert:@"课程数量不足，请购买" withDelegate:self];
 			return false;
 		}

@@ -38,7 +38,7 @@
 		E879861C19976E26006AED11 /* ClassMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861B19976E26006AED11 /* ClassMenuViewController.m */; };
 		E879861F199774F3006AED11 /* ClassIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861E199774F3006AED11 /* ClassIndex.m */; };
 		E879862219977B2B006AED11 /* TeacherMenuTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */; };
-		E879862519979AB5006AED11 /* CreateClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862419979AB5006AED11 /* CreateClassViewController.m */; };
+		E879862519979AB5006AED11 /* CreateClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862419979AB5006AED11 /* CreateClassView.m */; };
 		E87986281997B564006AED11 /* StudentVerifyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87986271997B564006AED11 /* StudentVerifyTableViewController.m */; };
 		E879862E1997BDB8006AED11 /* StudentVerifyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862D1997BDB8006AED11 /* StudentVerifyTableViewCell.m */; };
 		E894CA7219FF5C6C00727483 /* icon_attach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E894CA7119FF5C6C00727483 /* icon_attach.jpg */; };
@@ -296,8 +296,8 @@
 		E879861E199774F3006AED11 /* ClassIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassIndex.m; sourceTree = "<group>"; };
 		E879862019977B2B006AED11 /* TeacherMenuTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherMenuTableTableViewController.h; sourceTree = "<group>"; };
 		E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherMenuTableTableViewController.m; sourceTree = "<group>"; };
-		E879862319979AB5006AED11 /* CreateClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateClassViewController.h; sourceTree = "<group>"; };
-		E879862419979AB5006AED11 /* CreateClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateClassViewController.m; sourceTree = "<group>"; };
+		E879862319979AB5006AED11 /* CreateClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateClassView.h; sourceTree = "<group>"; };
+		E879862419979AB5006AED11 /* CreateClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateClassView.m; sourceTree = "<group>"; };
 		E87986261997B564006AED11 /* StudentVerifyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentVerifyTableViewController.h; sourceTree = "<group>"; };
 		E87986271997B564006AED11 /* StudentVerifyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentVerifyTableViewController.m; sourceTree = "<group>"; };
 		E879862C1997BDB8006AED11 /* StudentVerifyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentVerifyTableViewCell.h; sourceTree = "<group>"; };
@@ -691,6 +691,8 @@
 		CCC6A9F11B0B6DC80027A953 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				E8C9DDB21A0BC1F700F1A748 /* userinfo.h */,
+				E8C9DDB31A0BC1F700F1A748 /* userinfo.m */,
 				E8F4BA19198E9BD800F7D79F /* ClassManagementView.h */,
 				E8F4BA1A198E9BD800F7D79F /* ClassManagementView.m */,
 				E8BD7EDC1973BFD700A663E1 /* StudentIndex.h */,
@@ -711,6 +713,10 @@
 				CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */,
 				E879861D199774F3006AED11 /* ClassIndex.h */,
 				E879861E199774F3006AED11 /* ClassIndex.m */,
+				E8C9DDB51A0BCC5600F1A748 /* UpdateInfo.h */,
+				E8C9DDB61A0BCC5600F1A748 /* UpdateInfo.m */,
+				E879862319979AB5006AED11 /* CreateClassView.h */,
+				E879862419979AB5006AED11 /* CreateClassView.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -1056,10 +1062,6 @@
 				E8BFF9F419F66FC600B5FD87 /* ServerIP.m */,
 				E8A2B3BE1A03366800A7F421 /* AboutWKT.h */,
 				E8A2B3BF1A03366800A7F421 /* AboutWKT.m */,
-				E8C9DDB21A0BC1F700F1A748 /* userinfo.h */,
-				E8C9DDB31A0BC1F700F1A748 /* userinfo.m */,
-				E8C9DDB51A0BCC5600F1A748 /* UpdateInfo.h */,
-				E8C9DDB61A0BCC5600F1A748 /* UpdateInfo.m */,
 				E8D9ED8B1A20900200881992 /* IntegralHome.h */,
 				E8D9ED8C1A20900200881992 /* IntegralHome.m */,
 				E8E0DAE01A308E450028513E /* ConfigServer.h */,
@@ -1148,8 +1150,6 @@
 				E83AD3991988198200042893 /* BuyViewController.m */,
 				E879862019977B2B006AED11 /* TeacherMenuTableTableViewController.h */,
 				E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */,
-				E879862319979AB5006AED11 /* CreateClassViewController.h */,
-				E879862419979AB5006AED11 /* CreateClassViewController.m */,
 				E87986261997B564006AED11 /* StudentVerifyTableViewController.h */,
 				E87986271997B564006AED11 /* StudentVerifyTableViewController.m */,
 				E8EB91431998F5CB0049B3CD /* VoteManagementViewController.h */,
@@ -1532,7 +1532,7 @@
 				E8F683F6197410F700C83E8B /* Reachability.m in Sources */,
 				E8F5E315196325600017F7E0 /* SBJSON.m in Sources */,
 				E83AD39A1988198200042893 /* BuyViewController.m in Sources */,
-				E879862519979AB5006AED11 /* CreateClassViewController.m in Sources */,
+				E879862519979AB5006AED11 /* CreateClassView.m in Sources */,
 				E8DD49B419D7D8D100F08E4E /* StudentGroupMainTableViewController.m in Sources */,
 				E8DD49BA19D7E62600F08E4E /* ViewGroupTableViewController.m in Sources */,
 				E8BD7EDE1973BFD700A663E1 /* StudentIndex.m in Sources */,

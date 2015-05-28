@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
-
-@interface UpdateInfo : UITableViewController<UITextFieldDelegate>
+#import "SmurfTableView.h"
+@interface UpdateInfo : SmurfTableView
 @property (retain, nonatomic) IBOutlet UITextField *tValue;
 @property (nonatomic, retain) NSString *attribute;
 @property (nonatomic, retain) NSString *value;

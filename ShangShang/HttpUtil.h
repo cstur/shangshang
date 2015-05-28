@@ -10,20 +10,20 @@
 #import "ASIHTTPRequest.h"
 #import "ServerIP.h"
 
-typedef void(^FinshLoadBlock) (NSURLResponse *response, NSData *data, NSError *error);
+typedef void (^FinshLoadBlock) (NSURLResponse *response, NSData *data, NSError *error);
 
-@interface HttpUtil : NSObject{
-    NSString* server;
+@interface HttpUtil : NSObject {
+	NSString *server;
 }
-+(HttpUtil*)getInstance;
-- (NSData*) SendGetRequest:(NSString*)str;
-- (NSString*)SendPostRequest:(NSString *)str withBody:(id) obj;
-- (NSString*)SendPostRequestWithParam:(NSDictionary *)param withURL:(NSString*) urlShort;
-- (NSData*)toJSONData:(id)theData;
-- (void) GetAsynchronous:(NSString*)str withDelegate:(id)delegate;
--(void) post:(NSString*)urlString withCompletionBlock:(FinshLoadBlock)block;
--(void) get:(NSString*)urlString withCompletionBlock:(FinshLoadBlock)block withTimeOut:(NSTimeInterval)timeout;
--(void) send:(NSString*)urlString withCompletionBlock:(FinshLoadBlock)block withTimeOut:(NSTimeInterval)timeout withMethod:(NSString*) method;
-+ (NSString*)toJSONString:(id)theData;
++ (HttpUtil *)getInstance;
+- (NSData *)SendGetRequest:(NSString *)str;
+- (NSString *)SendPostRequest:(NSString *)str withBody:(id)obj;
+- (NSString *)SendPostRequestWithParam:(NSDictionary *)param withURL:(NSString *)urlShort;
+- (NSData *)toJSONData:(id)theData;
+- (void)GetAsynchronous:(NSString *)str withDelegate:(id)delegate;
+- (void)post:(NSString *)urlString withCompletionBlock:(FinshLoadBlock)block;
+- (void)get:(NSString *)urlString withCompletionBlock:(FinshLoadBlock)block withTimeOut:(NSTimeInterval)timeout;
+- (void)send:(NSString *)urlString withCompletionBlock:(FinshLoadBlock)block withTimeOut:(NSTimeInterval)timeout withMethod:(NSString *)method;
++ (NSString *)toJSONString:(id)theData;
 
 @end

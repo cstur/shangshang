@@ -36,7 +36,7 @@
         [self.friendlyName setObject:[CommonUtil getTagName:i] forKey:[rowDict objectForKey:@"id"]];
     }
     
-    self.listDetails=[CommonUtil iosapi_VoteDetails:self.sVote.voteid withClassID:self.sClass.classId];
+    self.listDetails=[CommonUtil iosapi_VoteDetails:self.sVote.voteid withClassID:[self.sClass objectForKey:@"id"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -212,7 +212,7 @@
 }
 
 -(void)pushVote{
-    [CommonUtil restapi_PushVote:self.sClass.classId];
+    [CommonUtil restapi_PushVote:[self.sClass objectForKey:@"id"]];
     [CommonUtil ShowAlert:@"推送已发出" withDelegate:self];
 }
 -(void)release{}

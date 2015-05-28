@@ -10,8 +10,9 @@
 #import "CommonUtil.h"
 #import "UpdateInfo.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "SmurfTableView.h"
 
-@interface userinfo : UITableViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface userinfo : SmurfTableView<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (retain, nonatomic) IBOutlet UIImageView *headphoto;
 @property (retain, nonatomic) IBOutlet UILabel *lnickName;
 @property (retain, nonatomic) IBOutlet UILabel *lAccount;

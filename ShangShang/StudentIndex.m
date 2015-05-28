@@ -35,7 +35,7 @@
 	self.labelNickName.text = [self.loginUser objectForKey:@"nickName"];
 
 	[CommonUtil showWaiting:self.navigationController whileExecutingBlock: ^{
-	    self.headphoto = [CommonUtil getImage:[self.loginUser objectForKey:@"id"]];
+	    self.headphoto = [CommonUtil achiveHeadPhoto:[self.loginUser objectForKey:@"id"]];
 	} completionBlock: ^{
 	    self.userPhoto.image = self.headphoto;
 	}];

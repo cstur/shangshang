@@ -29,7 +29,7 @@
 	self.labelNickName.text = [self.loginUser objectForKey:@"nickName"];
 
 	[CommonUtil showWaiting:self.navigationController whileExecutingBlock: ^{
-	    self.headphoto = [CommonUtil getImage:[self.loginUser objectForKey:@"id"]];
+	    self.headphoto = [CommonUtil achiveHeadPhoto:[self.loginUser objectForKey:@"id"]];
 	} completionBlock: ^{
 	    self.userPhoto.image = self.headphoto;
 	}];
@@ -39,26 +39,26 @@
 	[super viewDidLoad];
 }
 
-- (void)updateConfig {
-	NSString *url = [NSString stringWithFormat:@"SmurfWeb/rest/ios/resource?userid=%@", [self.loginUser objectForKey:@"id"]];
-	[[HttpUtil getInstance] GetAsynchronous:url withDelegate:self];
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request {
-	//NSLog(@"get config data complete");
-	//NSData *response = [request responseData];
-	//NSDictionary *obj=[NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
-
-	//limitClass=[[obj objectForKey:@"classNumber"] intValue];
-	//limitTopic=[[obj objectForKey:@"topicNumber"] intValue];
-	//limitVote=[[obj objectForKey:@"voteNumber"] intValue];
-	//NSLog(@"limit data:[class:%d],[topic:%d],[vote:%d]",limitClass,limitTopic,limitVote);
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request {
-	NSError *error = [request error];
-	NSLog(@"%@", error);
-}
+//- (void)updateConfig {
+//	NSString *url = [NSString stringWithFormat:@"SmurfWeb/rest/ios/resource?userid=%@", [self.loginUser objectForKey:@"id"]];
+//	[[HttpUtil getInstance] GetAsynchronous:url withDelegate:self];
+//}
+//
+//- (void)requestFinished:(ASIHTTPRequest *)request {
+//	NSLog(@"get config data complete");
+//	NSData *response = [request responseData];
+//	NSDictionary *obj=[NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+//
+//	limitClass=[[obj objectForKey:@"classNumber"] intValue];
+//	limitTopic=[[obj objectForKey:@"topicNumber"] intValue];
+//	limitVote=[[obj objectForKey:@"voteNumber"] intValue];
+//	NSLog(@"limit data:[class:%d],[topic:%d],[vote:%d]",limitClass,limitTopic,limitVote);
+//}
+//
+//- (void)requestFailed:(ASIHTTPRequest *)request {
+//	NSError *error = [request error];
+//	NSLog(@"%@", error);
+//}
 
 - (IBAction)btnBack:(id)sender {
 	[self openLoginDialog];

@@ -21,7 +21,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *labelClassName;
 @property (retain, nonatomic) IBOutlet UILabel *labelCapacity;
 @property (retain, nonatomic) IBOutlet UITextView *textViewDescription;
-@property (nonatomic,assign)NSMutableDictionary *sClass;
+
 -(void)menuClicked:(UIButton*)menuButton;
 -(void)popover:(id)sender;
 -(void)selectedTableRow:(NSUInteger)rowNum;

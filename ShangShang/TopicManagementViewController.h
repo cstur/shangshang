@@ -10,9 +10,11 @@
 #import "CommonUtil.h"
 #import "CreateTopicViewController.h"
 #import "ViewGroupTableViewController.h"
-@interface TopicManagementViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+#import "SmurfView.h"
+
+@interface TopicManagementViewController : SmurfView<UITableViewDelegate,UITableViewDataSource>
 - (IBAction)btnCreateTopic:(id)sender;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *listTopic;
-@property (nonatomic,assign)SmurfClass *sClass;
+
 @end

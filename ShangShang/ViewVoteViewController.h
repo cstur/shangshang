@@ -12,7 +12,7 @@
 #import "VoteDetailTableViewController.h"
 #import "MagicPieLayer.h"
 #import "VoteSum.h"
-
+#import "SmurfTableView.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>
@@ -22,8 +22,8 @@
 
 @class PieLayer;
 
-@interface ViewVoteViewController : UITableViewController
-@property (nonatomic,assign)SmurfClass *sClass;
+@interface ViewVoteViewController : SmurfTableView
+
 @property (nonatomic,assign)SSVote *sVote;
 @property (nonatomic, strong) NSArray *listOption;
 @property (nonatomic, strong) NSArray *listDetails;

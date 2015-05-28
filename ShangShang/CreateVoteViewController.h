@@ -15,8 +15,9 @@
 #import <CoreMedia/CoreMedia.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "SmurfTableView.h"
 
-@interface CreateVoteViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface CreateVoteViewController : SmurfTableView<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet UITextField *textTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableOption;
@@ -27,7 +28,6 @@
 
 @property (nonatomic, retain) NSData *attachPhoto;
 @property (nonatomic, strong) NSMutableArray *listOption;
-@property (nonatomic,assign)  SmurfClass *sClass;
 
 - (IBAction)btnAttach:(id)sender;
 - (IBAction)btnConfrim:(id)sender;

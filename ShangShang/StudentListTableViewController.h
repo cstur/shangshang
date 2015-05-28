@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
-@interface StudentListTableViewController : UITableViewController
-@property (nonatomic,assign)SmurfClass *sClass;
+#import "SmurfTableView.h"
+@interface StudentListTableViewController : SmurfTableView
+
 @property (nonatomic, strong) NSArray *listStudent;
 @end
