@@ -2097,10 +2097,10 @@
             </objects>
             <point key="canvasLocation" x="1212" y="956"/>
         </scene>
-        <!--Create Class View Controller-->
+        <!--Create Class View-->
         <scene sceneID="1IA-tW-5mX">
             <objects>
-                <viewController id="3HX-dW-O3m" customClass="CreateClassViewController" sceneMemberID="viewController">
+                <viewController id="3HX-dW-O3m" customClass="CreateClassView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wV-PT-Rud">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
