@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ClassManagementView.h"
 #import "SmurfView.h"
+#import "ZBarSDK.h"
 
-@interface ClassManagementView : SmurfView<UITableViewDelegate,UITableViewDataSource>
+@interface ClassManagementView : SmurfView<ZBarReaderDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *listClass;
+@property (nonatomic, retain) NSString *result;
+@property (nonatomic) int role;
+- (IBAction)btnScan:(id)sender;
 -(void)createClassCompletion:(NSNotification*)notification;
 @end

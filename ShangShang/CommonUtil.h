@@ -30,6 +30,8 @@ extern NSString *SEARCHFROM;
 extern int limitClass;
 extern int limitVote;
 extern int limitTopic;
+extern int ROLE_Teacher;
+extern int ROLE_Student;
 extern NSString *SMURF_KEY_USERNAME;
 extern NSString *SMURF_KEY_PASSWORD;
 extern NSString *SMURF_KEY_USER;

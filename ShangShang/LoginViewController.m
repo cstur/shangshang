@@ -69,11 +69,11 @@
 	if (self.loginUser != nil) {
 		@try {
 			int role = [[self.loginUser objectForKey:@"role"] intValue];
-			if (role == 2) {
+			if (role == ROLE_Student) {
 				[self presentViewWithIdentifier:@"navstudent"];
 			}
 
-			if (role == 1) {
+			if (role == ROLE_Teacher) {
 				[self presentViewWithIdentifier:@"navteacher"];
 			}
 

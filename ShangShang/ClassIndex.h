@@ -9,21 +9,20 @@
 #import "FPPopoverController.h"
 #import "ARCMacros.h"
 #import "FPPopoverKeyboardResponsiveController.h"
-#import "TeacherMenuTableTableViewController.h"
 #import "CommonUtil.h"
 #import "SmurfTableView.h"
-@interface ClassIndex : SmurfTableView<FPPopoverControllerDelegate>
+@interface ClassIndex : SmurfTableView <FPPopoverControllerDelegate>
 {
-    FPPopoverKeyboardResponsiveController *popover;
-    CGFloat _keyboardHeight;
+	FPPopoverController *popover;
+	//CGFloat _keyboardHeight;
 }
 @property (retain, nonatomic) IBOutlet UIImageView *qrCode;
 @property (retain, nonatomic) IBOutlet UILabel *labelClassName;
 @property (retain, nonatomic) IBOutlet UILabel *labelCapacity;
 @property (retain, nonatomic) IBOutlet UITextView *textViewDescription;
 
--(void)menuClicked:(UIButton*)menuButton;
--(void)popover:(id)sender;
--(void)selectedTableRow:(NSUInteger)rowNum;
+- (void)menuClicked:(UIButton *)menuButton;
+- (void)popover:(id)sender;
+- (void)selectedTableRow:(NSUInteger)rowNum;
 
 @end

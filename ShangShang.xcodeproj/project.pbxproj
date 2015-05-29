@@ -37,7 +37,7 @@
 		E8777BFC1A5045BC0019E0D7 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = E8777BFB1A5045BC0019E0D7 /* ConfigData.m */; };
 		E879861C19976E26006AED11 /* ClassMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861B19976E26006AED11 /* ClassMenuViewController.m */; };
 		E879861F199774F3006AED11 /* ClassIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = E879861E199774F3006AED11 /* ClassIndex.m */; };
-		E879862219977B2B006AED11 /* TeacherMenuTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */; };
+		E879862219977B2B006AED11 /* MenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862119977B2B006AED11 /* MenuTableView.m */; };
 		E879862519979AB5006AED11 /* CreateClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862419979AB5006AED11 /* CreateClassView.m */; };
 		E87986281997B564006AED11 /* StudentVerifyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87986271997B564006AED11 /* StudentVerifyTableViewController.m */; };
 		E879862E1997BDB8006AED11 /* StudentVerifyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E879862D1997BDB8006AED11 /* StudentVerifyTableViewCell.m */; };
@@ -294,8 +294,8 @@
 		E879861B19976E26006AED11 /* ClassMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassMenuViewController.m; sourceTree = "<group>"; };
 		E879861D199774F3006AED11 /* ClassIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassIndex.h; sourceTree = "<group>"; };
 		E879861E199774F3006AED11 /* ClassIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassIndex.m; sourceTree = "<group>"; };
-		E879862019977B2B006AED11 /* TeacherMenuTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherMenuTableTableViewController.h; sourceTree = "<group>"; };
-		E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherMenuTableTableViewController.m; sourceTree = "<group>"; };
+		E879862019977B2B006AED11 /* MenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableView.h; sourceTree = "<group>"; };
+		E879862119977B2B006AED11 /* MenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableView.m; sourceTree = "<group>"; };
 		E879862319979AB5006AED11 /* CreateClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateClassView.h; sourceTree = "<group>"; };
 		E879862419979AB5006AED11 /* CreateClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateClassView.m; sourceTree = "<group>"; };
 		E87986261997B564006AED11 /* StudentVerifyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentVerifyTableViewController.h; sourceTree = "<group>"; };
@@ -717,8 +717,21 @@
 				E8C9DDB61A0BCC5600F1A748 /* UpdateInfo.m */,
 				E879862319979AB5006AED11 /* CreateClassView.h */,
 				E879862419979AB5006AED11 /* CreateClassView.m */,
+				E879862019977B2B006AED11 /* MenuTableView.h */,
+				E879862119977B2B006AED11 /* MenuTableView.m */,
 			);
 			name = ui;
+			sourceTree = "<group>";
+		};
+		CCFC8C631B171C4400ABCAED /* abort */ = {
+			isa = PBXGroup;
+			children = (
+				E8DD49A319D52C4400F08E4E /* StudentMenuTableTableViewController.h */,
+				E8DD49A419D52C4400F08E4E /* StudentMenuTableTableViewController.m */,
+				E8AF3BA0197FFCDB007634A1 /* ClassManagementViewController.h */,
+				E8AF3BA1197FFCDB007634A1 /* ClassManagementViewController.m */,
+			);
+			name = abort;
 			sourceTree = "<group>";
 		};
 		E80DBDF91984AC0100AE5FE3 /* base64 */ = {
@@ -783,6 +796,7 @@
 		E8AEA732195842DB00F84598 /* ShangShang */ = {
 			isa = PBXGroup;
 			children = (
+				CCFC8C631B171C4400ABCAED /* abort */,
 				CCC6A9F11B0B6DC80027A953 /* ui */,
 				E8C337A61A1346C40012C9FE /* ExpansionTableViewByZQ */,
 				E8F685181974D19D00C83E8B /* images */,
@@ -1083,12 +1097,8 @@
 				E83AD3961988197200042893 /* PendingClassViewController.m */,
 				E8AF3BA3197FFEBA007634A1 /* SearchClassViewController.h */,
 				E8AF3BA4197FFEBA007634A1 /* SearchClassViewController.m */,
-				E8AF3BA0197FFCDB007634A1 /* ClassManagementViewController.h */,
-				E8AF3BA1197FFCDB007634A1 /* ClassManagementViewController.m */,
 				E879861A19976E26006AED11 /* ClassMenuViewController.h */,
 				E879861B19976E26006AED11 /* ClassMenuViewController.m */,
-				E8DD49A319D52C4400F08E4E /* StudentMenuTableTableViewController.h */,
-				E8DD49A419D52C4400F08E4E /* StudentMenuTableTableViewController.m */,
 				E8DD49A619D531AC00F08E4E /* StudentVoteViewController.h */,
 				E8DD49A719D531AC00F08E4E /* StudentVoteViewController.m */,
 				E8DD49A919D53D4800F08E4E /* StudentViewVoteTableViewController.h */,
@@ -1148,8 +1158,6 @@
 				E83AD39C1988198E00042893 /* VideoViewController.m */,
 				E83AD3981988198200042893 /* BuyViewController.h */,
 				E83AD3991988198200042893 /* BuyViewController.m */,
-				E879862019977B2B006AED11 /* TeacherMenuTableTableViewController.h */,
-				E879862119977B2B006AED11 /* TeacherMenuTableTableViewController.m */,
 				E87986261997B564006AED11 /* StudentVerifyTableViewController.h */,
 				E87986271997B564006AED11 /* StudentVerifyTableViewController.m */,
 				E8EB91431998F5CB0049B3CD /* VoteManagementViewController.h */,
@@ -1548,7 +1556,7 @@
 				E8DD49A519D52C4400F08E4E /* StudentMenuTableTableViewController.m in Sources */,
 				36181D201A14AED5009A88B8 /* AFURLSessionManager.m in Sources */,
 				E8AF3B9F197FEF4E007634A1 /* JastorRuntimeHelper.m in Sources */,
-				E879862219977B2B006AED11 /* TeacherMenuTableTableViewController.m in Sources */,
+				E879862219977B2B006AED11 /* MenuTableView.m in Sources */,
 				E820A14B1A1353E00019D342 /* CellPicture.m in Sources */,
 				E8F683EF197410F700C83E8B /* ASIDataCompressor.m in Sources */,
 				36181D1A1A14AED5009A88B8 /* AFHTTPSessionManager.m in Sources */,

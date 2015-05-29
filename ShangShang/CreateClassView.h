@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
 #import "SmurfView.h"
-@interface CreateClassView : SmurfView<UITextViewDelegate>
+@interface CreateClassView : SmurfView <UITextViewDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *textClassName;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentVerify;
 @property (retain, nonatomic) IBOutlet UITextView *textViewDescription;

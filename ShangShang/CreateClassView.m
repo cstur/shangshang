@@ -56,6 +56,7 @@
     [_textViewDescription release];
     [super dealloc];
 }
+
 - (IBAction)btnCreateClass:(id)sender {
     if (self.textClassName.text.length==0||self.textViewDescription.text.length==0) {
         [self showAlert:@"课程名和课程描述不能为空"];

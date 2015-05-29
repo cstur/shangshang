@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SmurfTableView.h"
+#import "ClassIndex.h"
 @class ClassIndex;
-@interface TeacherMenuTableTableViewController : UITableViewController
+@interface MenuTableView : SmurfTableView
 @property(nonatomic,assign) ClassIndex *delegate;
 @property (nonatomic, strong) NSArray *listMenu;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "ApplyClassViewController.h"
-#import "ClassManagementViewController.h"
+#import "ClassManagementView.h"
 #import "PendingClassViewController.h"
 
 @interface ApplyClassViewController ()
@@ -75,8 +75,8 @@
                 [self presentViewController:newV animated:YES completion:^{}];
             }else{
                 for (UIViewController* viewController in self.navigationController.viewControllers) {
-                    if ([viewController isKindOfClass:[ClassManagementViewController class]] ) {
-                        ClassManagementViewController *pendingClassViewController = (ClassManagementViewController*)viewController;
+                    if ([viewController isKindOfClass:[ClassManagementView class]] ) {
+                        ClassManagementView *pendingClassViewController = (ClassManagementView*)viewController;
                         [self.navigationController popToViewController:pendingClassViewController animated:YES];
                     }
                 }
