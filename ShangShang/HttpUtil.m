@@ -123,6 +123,18 @@ static HttpUtil *instance = nil;
 	return @"-1";
 }
 
+- (NSArray *)getArrayData:(NSString *)url {
+	@try {
+		NSData *response = [self SendGetRequest:url];
+		NSString *newStr = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+		return [NSJSONSerialization JSONObjectWithData:[newStr dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
+	}
+	@catch (NSException *exception)
+	{
+		NSLog(@"%@", exception);
+	}
+}
+
 - (NSString *)SendPostRequestWithParam:(NSDictionary *)param withURL:(NSString *)urlShort {
 	NSString *urlStr = [NSString stringWithFormat:@"http://%@/%@", server, urlShort];
 	NSURL *url = [NSURL URLWithString:urlStr];

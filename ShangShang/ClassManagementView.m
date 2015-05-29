@@ -17,16 +17,18 @@
 @synthesize result = result_;
 - (void)viewWillAppear:(BOOL)animated {
 	self.navigationItem.title = @"课程管理";
+    
+    
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
+    [self refreshTable];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createClassCompletion:) name:@"CreateClassCompletion" object:nil];
 }
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	[self.tableView setDataSource:self];
-	[self.tableView setDelegate:self];
-	[self refreshTable];
-
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createClassCompletion:) name:@"CreateClassCompletion" object:nil];
 }
 
 - (void)refreshTable {
@@ -119,6 +121,10 @@
 
 	[self presentViewController:reader animated:YES completion: ^{}];
 	[reader release];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [[NSUserDefaults standardUserDefaults] setObject:@"class" forKey:@"searchFlag"];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

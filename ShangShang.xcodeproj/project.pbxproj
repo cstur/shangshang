@@ -29,7 +29,7 @@
 		E83AD3901987EED100042893 /* icon_bug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E83AD38E1987EED100042893 /* icon_bug.jpg */; };
 		E83AD3911987EED100042893 /* icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = E83AD38F1987EED100042893 /* icon_video.png */; };
 		E83AD39419880FEC00042893 /* SmurfClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD39319880FEC00042893 /* SmurfClass.m */; };
-		E83AD3971988197200042893 /* PendingClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD3961988197200042893 /* PendingClassViewController.m */; };
+		E83AD3971988197200042893 /* GeneralTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD3961988197200042893 /* GeneralTableView.m */; };
 		E83AD39A1988198200042893 /* BuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD3991988198200042893 /* BuyViewController.m */; };
 		E83AD39D1988198E00042893 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83AD39C1988198E00042893 /* VideoViewController.m */; };
 		E84321DB1A38162B0017BE19 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E84321DA1A38162B0017BE19 /* libsqlite3.dylib */; };
@@ -62,12 +62,12 @@
 		E8AF3B9E197FEF4E007634A1 /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF3B9B197FEF4E007634A1 /* Jastor.m */; };
 		E8AF3B9F197FEF4E007634A1 /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF3B9D197FEF4E007634A1 /* JastorRuntimeHelper.m */; };
 		E8AF3BA2197FFCDB007634A1 /* ClassManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF3BA1197FFCDB007634A1 /* ClassManagementViewController.m */; };
-		E8AF3BA5197FFEBA007634A1 /* SearchClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF3BA4197FFEBA007634A1 /* SearchClassViewController.m */; };
+		E8AF3BA5197FFEBA007634A1 /* SearchClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF3BA4197FFEBA007634A1 /* SearchClassView.m */; };
 		E8B0CAE519A085DD0031B49C /* SSVote.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CAE419A085DD0031B49C /* SSVote.m */; };
 		E8B0CAE819A0860E0031B49C /* SSVoteOption.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CAE719A0860E0031B49C /* SSVoteOption.m */; };
 		E8B0CAEB19A0EE4E0031B49C /* ViewVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CAEA19A0EE4E0031B49C /* ViewVoteViewController.m */; };
 		E8B0CAEE19A175470031B49C /* ViewOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CAED19A175470031B49C /* ViewOptionTableViewCell.m */; };
-		E8B0E4CF199125010004E96F /* ApplyClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B0E4CE199125010004E96F /* ApplyClassViewController.m */; };
+		E8B0E4CF199125010004E96F /* ApplyClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B0E4CE199125010004E96F /* ApplyClassView.m */; };
 		E8B187201A0269630015E48B /* VoteSum.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B1871F1A0269630015E48B /* VoteSum.m */; };
 		E8B187231A026FF00015E48B /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B187221A026FF00015E48B /* XYPieChart.m */; };
 		E8B4E3E51A0295200027F652 /* attach.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B4E3E21A0295200027F652 /* attach.png */; };
@@ -279,8 +279,8 @@
 		E83AD38F1987EED100042893 /* icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_video.png; path = images/icon_video.png; sourceTree = "<group>"; };
 		E83AD39219880FEC00042893 /* SmurfClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmurfClass.h; sourceTree = "<group>"; };
 		E83AD39319880FEC00042893 /* SmurfClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmurfClass.m; sourceTree = "<group>"; };
-		E83AD3951988197200042893 /* PendingClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingClassViewController.h; sourceTree = "<group>"; };
-		E83AD3961988197200042893 /* PendingClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingClassViewController.m; sourceTree = "<group>"; };
+		E83AD3951988197200042893 /* GeneralTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableView.h; sourceTree = "<group>"; };
+		E83AD3961988197200042893 /* GeneralTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableView.m; sourceTree = "<group>"; };
 		E83AD3981988198200042893 /* BuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyViewController.h; sourceTree = "<group>"; };
 		E83AD3991988198200042893 /* BuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewController.m; sourceTree = "<group>"; };
 		E83AD39B1988198E00042893 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
@@ -338,8 +338,8 @@
 		E8AF3B9D197FEF4E007634A1 /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JastorRuntimeHelper.m; path = jstor/JastorRuntimeHelper.m; sourceTree = "<group>"; };
 		E8AF3BA0197FFCDB007634A1 /* ClassManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassManagementViewController.h; sourceTree = "<group>"; };
 		E8AF3BA1197FFCDB007634A1 /* ClassManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassManagementViewController.m; sourceTree = "<group>"; };
-		E8AF3BA3197FFEBA007634A1 /* SearchClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchClassViewController.h; sourceTree = "<group>"; };
-		E8AF3BA4197FFEBA007634A1 /* SearchClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchClassViewController.m; sourceTree = "<group>"; };
+		E8AF3BA3197FFEBA007634A1 /* SearchClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchClassView.h; sourceTree = "<group>"; };
+		E8AF3BA4197FFEBA007634A1 /* SearchClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchClassView.m; sourceTree = "<group>"; };
 		E8B0CAE319A085DD0031B49C /* SSVote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSVote.h; sourceTree = "<group>"; };
 		E8B0CAE419A085DD0031B49C /* SSVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSVote.m; sourceTree = "<group>"; };
 		E8B0CAE619A0860E0031B49C /* SSVoteOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSVoteOption.h; sourceTree = "<group>"; };
@@ -348,8 +348,8 @@
 		E8B0CAEA19A0EE4E0031B49C /* ViewVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewVoteViewController.m; sourceTree = "<group>"; };
 		E8B0CAEC19A175470031B49C /* ViewOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewOptionTableViewCell.h; sourceTree = "<group>"; };
 		E8B0CAED19A175470031B49C /* ViewOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewOptionTableViewCell.m; sourceTree = "<group>"; };
-		E8B0E4CD199125010004E96F /* ApplyClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyClassViewController.h; sourceTree = "<group>"; };
-		E8B0E4CE199125010004E96F /* ApplyClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyClassViewController.m; sourceTree = "<group>"; };
+		E8B0E4CD199125010004E96F /* ApplyClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyClassView.h; sourceTree = "<group>"; };
+		E8B0E4CE199125010004E96F /* ApplyClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyClassView.m; sourceTree = "<group>"; };
 		E8B1871E1A0269630015E48B /* VoteSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteSum.h; sourceTree = "<group>"; };
 		E8B1871F1A0269630015E48B /* VoteSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteSum.m; sourceTree = "<group>"; };
 		E8B187211A026FF00015E48B /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
@@ -719,6 +719,10 @@
 				E879862419979AB5006AED11 /* CreateClassView.m */,
 				E879862019977B2B006AED11 /* MenuTableView.h */,
 				E879862119977B2B006AED11 /* MenuTableView.m */,
+				E8AF3BA3197FFEBA007634A1 /* SearchClassView.h */,
+				E8AF3BA4197FFEBA007634A1 /* SearchClassView.m */,
+				E83AD3951988197200042893 /* GeneralTableView.h */,
+				E83AD3961988197200042893 /* GeneralTableView.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -726,10 +730,18 @@
 		CCFC8C631B171C4400ABCAED /* abort */ = {
 			isa = PBXGroup;
 			children = (
+				E8B0E4CD199125010004E96F /* ApplyClassView.h */,
+				E8B0E4CE199125010004E96F /* ApplyClassView.m */,
+				E8F1D92C198E7BBC004F2603 /* MenuTableViewController.h */,
+				E8F1D92D198E7BBD004F2603 /* MenuTableViewController.m */,
+				E8B9320E198E23CE007FF19F /* ClassViewController.h */,
+				E8B9320F198E23CE007FF19F /* ClassViewController.m */,
 				E8DD49A319D52C4400F08E4E /* StudentMenuTableTableViewController.h */,
 				E8DD49A419D52C4400F08E4E /* StudentMenuTableTableViewController.m */,
 				E8AF3BA0197FFCDB007634A1 /* ClassManagementViewController.h */,
 				E8AF3BA1197FFCDB007634A1 /* ClassManagementViewController.m */,
+				E879861A19976E26006AED11 /* ClassMenuViewController.h */,
+				E879861B19976E26006AED11 /* ClassMenuViewController.m */,
 			);
 			name = abort;
 			sourceTree = "<group>";
@@ -1087,18 +1099,6 @@
 		E8D650C21993C79A00AF0DE8 /* student */ = {
 			isa = PBXGroup;
 			children = (
-				E8F1D92C198E7BBC004F2603 /* MenuTableViewController.h */,
-				E8F1D92D198E7BBD004F2603 /* MenuTableViewController.m */,
-				E8B0E4CD199125010004E96F /* ApplyClassViewController.h */,
-				E8B0E4CE199125010004E96F /* ApplyClassViewController.m */,
-				E8B9320E198E23CE007FF19F /* ClassViewController.h */,
-				E8B9320F198E23CE007FF19F /* ClassViewController.m */,
-				E83AD3951988197200042893 /* PendingClassViewController.h */,
-				E83AD3961988197200042893 /* PendingClassViewController.m */,
-				E8AF3BA3197FFEBA007634A1 /* SearchClassViewController.h */,
-				E8AF3BA4197FFEBA007634A1 /* SearchClassViewController.m */,
-				E879861A19976E26006AED11 /* ClassMenuViewController.h */,
-				E879861B19976E26006AED11 /* ClassMenuViewController.m */,
 				E8DD49A619D531AC00F08E4E /* StudentVoteViewController.h */,
 				E8DD49A719D531AC00F08E4E /* StudentVoteViewController.m */,
 				E8DD49A919D53D4800F08E4E /* StudentViewVoteTableViewController.h */,
@@ -1579,7 +1579,7 @@
 				E8EB91511998F97F0049B3CD /* CreateTopicViewController.m in Sources */,
 				CCFC8C601B10DB0E00ABCAED /* SmurfTableView.m in Sources */,
 				E83AD39419880FEC00042893 /* SmurfClass.m in Sources */,
-				E83AD3971988197200042893 /* PendingClassViewController.m in Sources */,
+				E83AD3971988197200042893 /* GeneralTableView.m in Sources */,
 				E8DD49BD19D7E63200F08E4E /* SerachGroupTableViewController.m in Sources */,
 				E8F4BA12198E97FA00F7D79F /* QRMatrix.m in Sources */,
 				E8EB91451998F5CB0049B3CD /* VoteManagementViewController.m in Sources */,
@@ -1638,7 +1638,7 @@
 				E8DD49B119D7D6FA00F08E4E /* StudentTopicTableViewController.m in Sources */,
 				E8CFCF0819FBDEEF00BEF827 /* STBubbleTableViewCell.m in Sources */,
 				E8B187201A0269630015E48B /* VoteSum.m in Sources */,
-				E8B0E4CF199125010004E96F /* ApplyClassViewController.m in Sources */,
+				E8B0E4CF199125010004E96F /* ApplyClassView.m in Sources */,
 				36181D1D1A14AED5009A88B8 /* AFURLConnectionOperation.m in Sources */,
 				E8F683D2197409F900C83E8B /* NSDictionary_JSONExtensions.m in Sources */,
 				E8F1D928198E74C1004F2603 /* FPPopoverKeyboardResponsiveController.m in Sources */,
@@ -1661,7 +1661,7 @@
 				E8F1D927198E74C1004F2603 /* DemoTableController.m in Sources */,
 				E8F683F5197410F700C83E8B /* ASINetworkQueue.m in Sources */,
 				E8EB914E1998F7510049B3CD /* StudentListTableViewController.m in Sources */,
-				E8AF3BA5197FFEBA007634A1 /* SearchClassViewController.m in Sources */,
+				E8AF3BA5197FFEBA007634A1 /* SearchClassView.m in Sources */,
 				E80DBDF81984951500AE5FE3 /* ImageUtil.m in Sources */,
 				E8F1D92E198E7BBD004F2603 /* MenuTableViewController.m in Sources */,
 			);

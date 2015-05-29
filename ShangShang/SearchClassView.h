@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SearchClassViewController : UIViewController<UISearchDisplayDelegate,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
+#import "SmurfView.h"
+@interface SearchClassView : SmurfView<UISearchDisplayDelegate,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *listClass;
 @property (nonatomic,assign)  NSString* from;

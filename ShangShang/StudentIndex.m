@@ -13,7 +13,7 @@
 #import "UpdateUserInfoViewController.h"
 #import "ImageUtil.h"
 #import "CommonUtil.h"
-#import "PendingClassViewController.h"
+#import "GeneralTableView.h"
 
 @interface StudentIndex ()
 
@@ -42,8 +42,12 @@
 }
 
 - (void)jumpToPendClassView {
-	PendingClassViewController *pendingclassView = (PendingClassViewController *)[CommonUtil getView:@"pendingclassview"];
+	GeneralTableView *pendingclassView = (GeneralTableView *)[CommonUtil getView:@"generalTableView"];
 	self.navigationItem.title = @"返回";
+    NSString* uid=[[[NSUserDefaults standardUserDefaults] objectForKey:SMURF_KEY_USER] objectForKey:@"id"];
+    NSString* url = [NSString stringWithFormat:@"SmurfWeb/rest/student/unreadyclasses?id=%@",uid];
+    pendingclassView.smurfURI=url;
+    pendingclassView.smurfTitle=@"待审批课程";
 	[self.navigationController pushViewController:pendingclassView animated:YES];
 }
 

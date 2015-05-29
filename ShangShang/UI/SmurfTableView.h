@@ -14,4 +14,5 @@
 
 - (void)presentViewWithIdentifier:(NSString *)identifier;
 - (void)associateTextFiedDelegate:(UITextField *)textField;
+- (void)showAlert:(NSString *)msg;
 @end

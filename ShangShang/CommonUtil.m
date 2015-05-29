@@ -11,7 +11,6 @@
 NSString *TITLE_SHANGSHANG = @"上商微课堂";
 NSString *Interface_InitUser = @"SmurfWeb/rest/user/login";
 NSString *DEVICETOKEN = @"";
-NSString *SEARCHFROM = @"class";
 int limitClass = 20;
 int limitVote = 5;
 int limitTopic = 5;

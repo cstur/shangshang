@@ -17,6 +17,7 @@ typedef void (^FinshLoadBlock) (NSURLResponse *response, NSData *data, NSError *
 }
 + (HttpUtil *)getInstance;
 - (NSData *)SendGetRequest:(NSString *)str;
+- (NSArray *)getArrayData:(NSString *)url;
 - (NSString *)SendPostRequest:(NSString *)str withBody:(id)obj;
 - (NSString *)SendPostRequestWithParam:(NSDictionary *)param withURL:(NSString *)urlShort;
 - (NSData *)toJSONData:(id)theData;
