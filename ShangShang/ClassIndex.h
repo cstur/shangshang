@@ -26,6 +26,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *labelTeacherName;
 @property (retain, nonatomic) IBOutlet UILabel *labelNeedVerify;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *leftBarButton;
 
 //@property(nonatomic)int hideMenu;
 
@@ -33,4 +34,6 @@
 //- (void)popover:(id)sender;
 //- (void)selectedTableRow:(NSUInteger)rowNum;
 - (IBAction)btnJoinClass:(id)sender;
+- (IBAction)backClick:(id)sender;
+
 @end

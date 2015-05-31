@@ -1466,7 +1466,7 @@
         <!--Class Management View-->
         <scene sceneID="MIC-8d-uBA">
             <objects>
-                <viewController id="lmB-K2-gvH" customClass="ClassManagementView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="classmanagementview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lmB-K2-gvH" customClass="ClassManagementView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fmK-cC-sLC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2671,6 +2671,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="WeX-Ck-jej">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="J5n-d4-lDo">
+                            <connections>
+                                <action selector="backClick:" destination="tQg-8D-nge" id="yqh-VI-Sj7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" width="20" id="6wS-MM-ivd">
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="tQg-8D-nge" id="ay9-gW-UZH"/>
@@ -2680,6 +2685,7 @@
                     <connections>
                         <outlet property="labelCapacity" destination="tOb-of-cvq" id="F7f-Wa-mmz"/>
                         <outlet property="labelClassName" destination="PJb-45-pge" id="fyl-Qx-ti7"/>
+                        <outlet property="leftBarButton" destination="J5n-d4-lDo" id="MiU-RI-ie2"/>
                         <outlet property="qrCode" destination="pvM-iO-ruE" id="dc6-F6-KTj"/>
                         <outlet property="rightBarButton" destination="6wS-MM-ivd" id="1SC-DL-1mL"/>
                         <outlet property="textViewDescription" destination="Af7-d7-66e" id="S9J-0B-82n"/>
