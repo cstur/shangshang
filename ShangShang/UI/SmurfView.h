@@ -19,4 +19,5 @@
 - (NSString *)stringForKey:(NSString *)key;
 - (void)showAlert:(NSString *)msg;
 - (void)presentViewWithIdentifier:(NSString *)identifier;
+- (void)setBackgroundImageView:(NSString *)imageName;
 @end

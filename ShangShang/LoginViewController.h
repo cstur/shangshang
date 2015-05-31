@@ -17,7 +17,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *textPassword;
 @property (retain, nonatomic) IBOutlet UIButton *btnLogin;
 - (IBAction)btnLogin:(id)sender;
-- (void)setBackgroundImageView:(NSString *)imageName;
+
 - (void)loginTask;
 - (void)loginComplete;
 - (void)backgroundTap;

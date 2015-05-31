@@ -19,6 +19,12 @@
 		CCC6A9FD1B0E25D00027A953 /* SmurfView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FC1B0E25D00027A953 /* SmurfView.m */; };
 		CCC6A9FF1B0E281F0027A953 /* BasicUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */; };
 		CCFC8C601B10DB0E00ABCAED /* SmurfTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */; };
+		CCFC8C6B1B1AA52100ABCAED /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C661B1AA52100ABCAED /* RECommonFunctions.m */; };
+		CCFC8C6C1B1AA52100ABCAED /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C681B1AA52100ABCAED /* RESideMenu.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CCFC8C6D1B1AA52100ABCAED /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C6A1B1AA52100ABCAED /* UIViewController+RESideMenu.m */; };
+		CCFC8C701B1B0C6900ABCAED /* RightMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C6F1B1B0C6900ABCAED /* RightMenuView.m */; };
+		CCFC8C721B1B0FC700ABCAED /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C681B1AA52100ABCAED /* RESideMenu.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CCFC8C751B1B157200ABCAED /* MenuRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8C741B1B157200ABCAED /* MenuRootView.m */; };
 		E80DBDF51983F52C00AE5FE3 /* AddDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF41983F52C00AE5FE3 /* AddDetailsView.m */; };
 		E80DBDF81984951500AE5FE3 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDF71984951500AE5FE3 /* ImageUtil.m */; };
 		E80DBDFC1984AC0E00AE5FE3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DBDFB1984AC0E00AE5FE3 /* NSData+Base64.m */; };
@@ -261,6 +267,16 @@
 		CCC6A9FE1B0E281F0027A953 /* BasicUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicUsage.m; sourceTree = "<group>"; };
 		CCFC8C5E1B10DB0E00ABCAED /* SmurfTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmurfTableView.h; path = UI/SmurfTableView.h; sourceTree = "<group>"; };
 		CCFC8C5F1B10DB0E00ABCAED /* SmurfTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmurfTableView.m; path = UI/SmurfTableView.m; sourceTree = "<group>"; };
+		CCFC8C651B1AA52100ABCAED /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		CCFC8C661B1AA52100ABCAED /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		CCFC8C671B1AA52100ABCAED /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		CCFC8C681B1AA52100ABCAED /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		CCFC8C691B1AA52100ABCAED /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		CCFC8C6A1B1AA52100ABCAED /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		CCFC8C6E1B1B0C6900ABCAED /* RightMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuView.h; path = UI/RightMenuView.h; sourceTree = "<group>"; };
+		CCFC8C6F1B1B0C6900ABCAED /* RightMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightMenuView.m; path = UI/RightMenuView.m; sourceTree = "<group>"; };
+		CCFC8C731B1B157200ABCAED /* MenuRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuRootView.h; path = UI/MenuRootView.h; sourceTree = "<group>"; };
+		CCFC8C741B1B157200ABCAED /* MenuRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuRootView.m; path = UI/MenuRootView.m; sourceTree = "<group>"; };
 		E80DBDF31983F52C00AE5FE3 /* AddDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDetailsView.h; sourceTree = "<group>"; };
 		E80DBDF41983F52C00AE5FE3 /* AddDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDetailsView.m; sourceTree = "<group>"; };
 		E80DBDF61984951500AE5FE3 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
@@ -691,6 +707,7 @@
 		CCC6A9F11B0B6DC80027A953 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				CCFC8C641B1AA52100ABCAED /* RESideMenu */,
 				E8C9DDB21A0BC1F700F1A748 /* userinfo.h */,
 				E8C9DDB31A0BC1F700F1A748 /* userinfo.m */,
 				E8F4BA19198E9BD800F7D79F /* ClassManagementView.h */,
@@ -717,12 +734,14 @@
 				E8C9DDB61A0BCC5600F1A748 /* UpdateInfo.m */,
 				E879862319979AB5006AED11 /* CreateClassView.h */,
 				E879862419979AB5006AED11 /* CreateClassView.m */,
-				E879862019977B2B006AED11 /* MenuTableView.h */,
-				E879862119977B2B006AED11 /* MenuTableView.m */,
 				E8AF3BA3197FFEBA007634A1 /* SearchClassView.h */,
 				E8AF3BA4197FFEBA007634A1 /* SearchClassView.m */,
 				E83AD3951988197200042893 /* GeneralTableView.h */,
 				E83AD3961988197200042893 /* GeneralTableView.m */,
+				CCFC8C6E1B1B0C6900ABCAED /* RightMenuView.h */,
+				CCFC8C6F1B1B0C6900ABCAED /* RightMenuView.m */,
+				CCFC8C731B1B157200ABCAED /* MenuRootView.h */,
+				CCFC8C741B1B157200ABCAED /* MenuRootView.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -730,6 +749,8 @@
 		CCFC8C631B171C4400ABCAED /* abort */ = {
 			isa = PBXGroup;
 			children = (
+				E879862019977B2B006AED11 /* MenuTableView.h */,
+				E879862119977B2B006AED11 /* MenuTableView.m */,
 				E8B0E4CD199125010004E96F /* ApplyClassView.h */,
 				E8B0E4CE199125010004E96F /* ApplyClassView.m */,
 				E8F1D92C198E7BBC004F2603 /* MenuTableViewController.h */,
@@ -744,6 +765,19 @@
 				E879861B19976E26006AED11 /* ClassMenuViewController.m */,
 			);
 			name = abort;
+			sourceTree = "<group>";
+		};
+		CCFC8C641B1AA52100ABCAED /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CCFC8C651B1AA52100ABCAED /* RECommonFunctions.h */,
+				CCFC8C661B1AA52100ABCAED /* RECommonFunctions.m */,
+				CCFC8C671B1AA52100ABCAED /* RESideMenu.h */,
+				CCFC8C681B1AA52100ABCAED /* RESideMenu.m */,
+				CCFC8C691B1AA52100ABCAED /* UIViewController+RESideMenu.h */,
+				CCFC8C6A1B1AA52100ABCAED /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
 			sourceTree = "<group>";
 		};
 		E80DBDF91984AC0100AE5FE3 /* base64 */ = {
@@ -1588,9 +1622,11 @@
 				E8C56D851A01F05700DFEB21 /* PieLayer.m in Sources */,
 				E8F5E32D19632F8E0017F7E0 /* AlixPayOrder.m in Sources */,
 				36181D1E1A14AED5009A88B8 /* AFURLRequestSerialization.m in Sources */,
+				CCFC8C6B1B1AA52100ABCAED /* RECommonFunctions.m in Sources */,
 				E8F683D0197409F900C83E8B /* CJSONDeserializer.m in Sources */,
 				E8C2C9431A104F6A00E4DE89 /* Pictures.m in Sources */,
 				E8F683F3197410F700C83E8B /* ASIHTTPRequest.m in Sources */,
+				CCFC8C701B1B0C6900ABCAED /* RightMenuView.m in Sources */,
 				E8C9ED441983B42800CD7CF4 /* QuestionViewController.m in Sources */,
 				E8C337C81A1346C40012C9FE /* Cell.m in Sources */,
 				E879862E1997BDB8006AED11 /* StudentVerifyTableViewCell.m in Sources */,
@@ -1601,6 +1637,7 @@
 				E8B9321A198E343A007FF19F /* FPPopoverView.m in Sources */,
 				36181D1F1A14AED5009A88B8 /* AFURLResponseSerialization.m in Sources */,
 				E894CA7719FF6A5A00727483 /* CellVote.m in Sources */,
+				CCFC8C6D1B1AA52100ABCAED /* UIViewController+RESideMenu.m in Sources */,
 				E8C9DDB71A0BCC5600F1A748 /* UpdateInfo.m in Sources */,
 				E8A2B3C31A03755B00A7F421 /* CellVideo.m in Sources */,
 				E8B93219198E343A007FF19F /* FPPopoverController.m in Sources */,
@@ -1648,6 +1685,7 @@
 				E83AD39D1988198E00042893 /* VideoViewController.m in Sources */,
 				E8F683F4197410F700C83E8B /* ASIInputStream.m in Sources */,
 				E8AF3B9E197FEF4E007634A1 /* Jastor.m in Sources */,
+				CCFC8C751B1B157200ABCAED /* MenuRootView.m in Sources */,
 				E8CFCEDA19FB905A00BEF827 /* ChatView.m in Sources */,
 				E8EB91481998F6E80049B3CD /* CreateVoteViewController.m in Sources */,
 				36181D1B1A14AED5009A88B8 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1657,6 +1695,7 @@
 				36181D191A14AED5009A88B8 /* AFHTTPRequestOperationManager.m in Sources */,
 				E8C9ED401983B22A00CD7CF4 /* NIDropDown.m in Sources */,
 				E8AEA739195842DB00F84598 /* main.m in Sources */,
+				CCFC8C6C1B1AA52100ABCAED /* RESideMenu.m in Sources */,
 				E8F683F1197410F700C83E8B /* ASIDownloadCache.m in Sources */,
 				E8F1D927198E74C1004F2603 /* DemoTableController.m in Sources */,
 				E8F683F5197410F700C83E8B /* ASINetworkQueue.m in Sources */,
@@ -1671,6 +1710,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFC8C721B1B0FC700ABCAED /* RESideMenu.m in Sources */,
 				CCC6A9FF1B0E281F0027A953 /* BasicUsage.m in Sources */,
 				E8D0EAA81995C8EC0079CADF /* ShangShang_Tests.m in Sources */,
 			);

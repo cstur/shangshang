@@ -6,14 +6,15 @@
 //  Copyright (c) 2014年 aopai.ios. All rights reserved.
 //
 
-#import "FPPopoverController.h"
+//#import "FPPopoverController.h"
 #import "ARCMacros.h"
-#import "FPPopoverKeyboardResponsiveController.h"
+//#import "FPPopoverKeyboardResponsiveController.h"
 #import "CommonUtil.h"
 #import "SmurfTableView.h"
-@interface ClassIndex : SmurfTableView <FPPopoverControllerDelegate>
+#import "RESideMenu.h"
+@interface ClassIndex : SmurfTableView
 {
-	FPPopoverController *popover;
+	//FPPopoverController *popover;
     NSString *result_;
 	//CGFloat _keyboardHeight;
 }
@@ -24,10 +25,12 @@
 @property (retain, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (retain, nonatomic) IBOutlet UILabel *labelTeacherName;
 @property (retain, nonatomic) IBOutlet UILabel *labelNeedVerify;
-@property(nonatomic)int hideMenu;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
 
-- (void)menuClicked:(UIButton *)menuButton;
-- (void)popover:(id)sender;
-- (void)selectedTableRow:(NSUInteger)rowNum;
+//@property(nonatomic)int hideMenu;
+
+//- (void)menuClicked:(UIButton *)menuButton;
+//- (void)popover:(id)sender;
+//- (void)selectedTableRow:(NSUInteger)rowNum;
 - (IBAction)btnJoinClass:(id)sender;
 @end

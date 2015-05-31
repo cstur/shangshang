@@ -57,7 +57,7 @@
 	UIStoryboard *m = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	ClassIndex *classView = (ClassIndex *)[m instantiateViewControllerWithIdentifier:@"classview"];
 	classView.sClass = [dict mutableCopy];
-    classView.hideMenu=1;
+    //classView.hideMenu=1;
 	self.navigationItem.title = @"返回";
 	[self.navigationController pushViewController:classView animated:YES];
 }

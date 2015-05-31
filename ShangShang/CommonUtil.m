@@ -19,6 +19,7 @@ int ROLE_Student=2;
 NSString *SMURF_KEY_USERNAME = @"smurf_username";
 NSString *SMURF_KEY_PASSWORD = @"smurf_password";
 NSString *SMURF_KEY_USER = @"smurf_user";
+NSString *SMURF_KEY_CCLASS=@"smurf_cclass";
 NSString *SMURF_KEY_TITLE = @"smurf_title";
 NSString *SMURF_KEY_UID = @"smurf_user_id";
 @implementation SPostData

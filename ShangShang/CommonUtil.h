@@ -34,6 +34,7 @@ extern int ROLE_Student;
 extern NSString *SMURF_KEY_USERNAME;
 extern NSString *SMURF_KEY_PASSWORD;
 extern NSString *SMURF_KEY_USER;
+extern NSString *SMURF_KEY_CCLASS;
 extern NSString *SMURF_KEY_TITLE;
 
 @interface SPostData : NSObject

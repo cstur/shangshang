@@ -18,7 +18,6 @@
 - (void)viewWillAppear:(BOOL)animated {
 	self.navigationItem.title = @"课程管理";
     
-    
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     [self refreshTable];
@@ -88,10 +87,12 @@
 	NSInteger row = [indexPath row];
 	NSDictionary *dict = [self.listClass objectAtIndex:row];
 	UIStoryboard *m = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-	ClassIndex *classView = (ClassIndex *)[m instantiateViewControllerWithIdentifier:@"classview"];
-	classView.sClass = [dict mutableCopy];
-	self.navigationItem.title = @"返回";
-	[self.navigationController pushViewController:classView animated:YES];
+	MenuRootView *classView = (MenuRootView *)[m instantiateViewControllerWithIdentifier:@"rootController"];
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:SMURF_KEY_CCLASS];
+	//classView.sClass = [dict mutableCopy];
+    	            [self presentViewController:classView animated:YES completion: ^{}];
+	//self.navigationItem.title = @"返回";
+	//[self.navigationController pushViewController:classView animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -10,6 +10,7 @@
 #import "ClassManagementView.h"
 #import "SmurfView.h"
 #import "ZBarSDK.h"
+#import "MenuRootView.h"
 
 @interface ClassManagementView : SmurfView<ZBarReaderDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;

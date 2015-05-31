@@ -115,7 +115,7 @@
 		NSDictionary *dict = [self.listClass objectAtIndex:row];
 		UIStoryboard *m = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 		ClassIndex *applyclassView = (ClassIndex *)[m instantiateViewControllerWithIdentifier:@"applyclassview"];
-        applyclassView.hideMenu=1;
+        //applyclassView.hideMenu=1;
 		applyclassView.sClass = [dict mutableCopy];
 		self.navigationItem.title = @"返回";
 		[self.navigationController pushViewController:applyclassView animated:YES];
